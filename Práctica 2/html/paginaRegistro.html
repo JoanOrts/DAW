@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<!--Desarrollo de Aplicaciones Web-->
+<!-- Carlos, Joan-->
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Registro. Pictures &amp Images</title>
+		<meta name="description" content="Pagina web de almacenamiento y difusión de fotos para la asignatura Programación Hipermedia">
+		<meta name="keywords" content="fotos, imagenes, pictures, images, album, pagina web, pictures & images, compartir fotos">
+	</head>
+	<body>
+		<header>
+			<h1>Pictures &amp Images</h1>
+			<p>Idenitifícate:</p>
+				<form action="MenuUsuarioRegistrado.html">
+						<label for="usuario">Usuario:</label><input type="text" name="usuario">
+						<label for="contraseña">Contraseña:</label><input type="text" name="contrasena">
+						<a href="MenuUsuarioRegistrado.html"><input type="submit" value="Identificar"></a>
+						<p>¿No estás registrado?<a href="paginaRegistro.html"><em>Regístrate</em></a></p>
+						<input type="submit" value="Búsqueda avanzada" onclick = "location='busqueda.html'">
+				</form>
+		</header>
+		<main>
+			<h2>Regístrate</h2>
+			<form>
+				<label for="usuario">Nombre de usuario:</label><input type="text" name="usuario" placeholder="Nombre de Usuario"><br>
+				<label for="contraseña">Contraseña:</label><input type="text" name="contrasena" placeholder="Contraseña"><br>
+				<label for="repetircontraseña">Repetir contraseña:</label><input type="text" name="rcontrasena" placeholder="Contraseña"><br>
+				<label for="email">Email:</label><input type="text" name="email" placeholder="Email"><br>
+				<label for="sexo">Sexo:</label>
+						<input type="radio" name="sexo" id="hombre" value="Hombre">
+		                      <label for="hombre">Hombre</label>
+		        <input type="radio" name="sexo" id="mujer" value="Mujer">
+		                      <label for="mujer">Mujer</label><br>
+				<label for="fecha">Fecha de nacimiento:</label>
+					<input type="text" name="dia" size="2" maxlength="2" placeholder="Dia"/>/<input type="text" name="mes" size="2" maxlength="2" placeholder="Mes"/>/<input type="text" name="año" size="2" maxlength="2" placeholder="Año"/><br>
+				<label for="ciudad">Ciudad:</label><input type="text" name="ciudad" placeholder="Ciudad"><br>
+				<label for"pais">País de Residencia:</pais><input type="text" name="pais" placeholder="País de residencia"><br>
+				Foto:<input type="file" name="foto"><br>
+				<input type="submit" value="¡Regístrate!" onclick = "location='PaginaPrincipal.html'">
+			</form>
+		</main>
+		<footer>
+			<p>Pictures &amp Images es una web creada por Joan Orts y Carlos Aracil para la asignatura de Desarrollo de Aplicaciones Web de la Universidad de Alicante</p>
+      <p>Copyright 2017</p>
+		</footer>
+	</body>
+</html>
