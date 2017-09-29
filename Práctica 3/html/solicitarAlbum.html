@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--Desarrollo de Aplicaciones Web-->
+<!-- Carlos, Joan-->
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Búsqueda. Pictures &amp; Images</title>
+		<meta name="description" content="Pagina web de almacenamiento y difusión de fotos para la asignatura Programación Hipermedia">
+		<meta name="keywords" content="fotos, imagenes, pictures, images, album, pagina web, pictures &amp; images, compartir fotos">
+	</head>
+	<body>
+		<header>
+			<a href="index.html"><img src="../images/logo.jpg" alt="Logo" width=100></a>
+			<h1>Pictures &amp; Images</h1>
+		</header>
+		<main>
+			<h2>Solicitar álbum</h2>
+				<p>Mediante esta opción puedes solicitar la impresión y envío de uno de tus álbumes a todo color y a toda resolución. El precio del álbum
+				variará dependiendo del número de páginas que tenga el álbum, de la resolución elgida y de si las fotos están en color o en blanco y negro.
+				A continuación le mostraremos nuestras tarifas:</p>
+				<table>
+					<thead>
+						<tr>Tarifas</tr>
+						<tr>
+							<td>Concepto</td>
+							<td>Tarifa</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td> 5 páginas</td>
+							<td>0.10€ por pág.</td>
+						</tr>
+						<tr>
+							<td>Entre 5 y 10 paginas</td>
+							<td>0.08€ por pág.</td>
+						</tr>
+						<tr>
+							<td>&#62; 11 páginas</td>
+							<td>0.07€ por pág.</td>
+						</tr>
+						<tr>
+							<td>Blanco y negro</td>
+							<td>0€</td>
+						</tr>
+						<tr>
+							<td>Color</td>
+							<td>0.05€ por foto</td>
+						</tr>
+						<tr>
+							<td>Resolución &#62; 300 dpi</td>
+							<td>0.02€ por foto</td>
+						</tr>
+					</tbody>
+				</table>
+			<h2>Formulario de solicitud</h2>
+				<form action="confirmacionAlbum.html">
+					<p>Nombre completo:</p><input type="text" name="nombrecompleto" placeholder="Nombre completo" maxlength="200">
+					<p>Título del álbum:</p><input type="text" name="tituloalbum" placeholder="Título del álbum" maxlength="200">
+					<p>Texto adicional:</p><textarea name="textoadicional" rows="10" cols="60" maxlength="400"></textarea>
+					<p>Correo electrónico:</p><input type="email" name="correoelectronico" placeholder="Email" maxlength="200">
+					<p>Dirección:</p>
+					<input type="text" name="calle" placeholder="Calle">
+					<input type="text" name="numero" placeholder="Número" size="5">
+					<input type="text" name="cp" placeholder="CP" size="6">
+					<input type="text" name="localidad" placeholder="Localidad">
+					<input type="text" name="provincia" placeholder="Provincia">
+					<p>Color de portada:</p> <input type="color" name="favcolor">
+					<p>Número de copias:</p><input type="number" name="numerocopias" min="1" value="1">
+					<p>Resolución de las fotos:</p><input type="number" name="resolucionfotos" min="150" max="900" step="150" value="150">
+					<p>Álbum de PI:</p>
+						<select>
+							<option value="album1">Álbum 1</option>
+							<option value="album2">Álbum 2</option>
+							<option value="album3">Álbum 3</option>
+							<option value="album4">Álbum 4</option>
+						</select>
+					<p>Fecha de recepción:</p>
+						<input type="text" name="dia" size="2" maxlength="2" />/<input type="text" name="mes" size="2" maxlength="2" />/<input type="text" name="año" size="2" maxlength="2" />
+					<p>Impresión</p>
+						<input type="radio" name="sexo" id="color" value="Color">
+							<label for="color">Color</label>
+						<input type="radio" name="sexo" id="blancoynegro" value="Blanco y negro">
+							<label for="blancoynegro">Blanco y negro</label>
+					<input type="submit" value="Solicitar">
+				</form>
+		</main>
+		<footer>
+			<p>Pictures &amp; Images es una web creada por Joan Orts y Carlos Aracil para la asignatura de Desarrollo de Aplicaciones Web de la Universidad de Alicante</p>
+    	<p>Copyright 2017</p>
+		</footer>
+	</body>
+</html>
