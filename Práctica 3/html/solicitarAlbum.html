@@ -58,29 +58,29 @@
 			<h2>Formulario de solicitud</h2>
 			<p>Rellene el formulario. Los campos con (*) son obligatorios</p>
 				<form action="confirmacionAlbum.html">
-					<p>Nombre completo (*):</p><input type="text" name="nombrecompleto" placeholder="Nombre completo" maxlength="200" required>
-					<p>Título del álbum(*):</p><input type="text" name="tituloalbum" placeholder="Título del álbum" maxlength="200">
-					<p>Texto adicional:</p><textarea name="textoadicional" rows="10" cols="60" maxlength="400"></textarea>
-					<p>Correo electrónico(*):</p><input type="email" name="correoelectronico" placeholder="Email" maxlength="200">
-					<p>Dirección (*):</p>
+					<label for="nombrecompleto">Nombre completo (*):</label><input type="text" name="nombrecompleto" placeholder="Nombre completo" maxlength="200" required><br>
+					<label for="tituloalbum">Título del álbum (*):</label><input type="text" name="tituloalbum" placeholder="Título del álbum" maxlength="200"><br>
+					<label for="textoadicional">Texto adicional:</label><textarea name="textoadicional" rows="10" cols="60" maxlength="400"></textarea><br>
+					<label for="email">Correo electrónico (*):</label><input type="email" name="correoelectronico" placeholder="Email" maxlength="200"><br>
+					<label for="direccion">Dirección (*):</label>
 					<input type="text" name="calle" placeholder="Calle">
 					<input type="text" name="numero" placeholder="Número" size="5">
 					<input type="text" name="cp" placeholder="CP" size="6">
 					<input type="text" name="localidad" placeholder="Localidad">
-					<input type="text" name="provincia" placeholder="Provincia">
-					<p>Color de portada:</p> <input type="color" name="favcolor">
-					<p>Número de copias (*):</p><input type="number" name="numerocopias" min="1" value="1">
-					<p>Resolución de las fotos (DPI):</p><input type="number" name="resolucionfotos" min="150" max="900" step="150" value="150">
-					<p>Álbum de PI:</p>
+					<input type="text" name="provincia" placeholder="Provincia"><br>
+					<label for="colorportada">Color de portada:</label><input type="color" name="favcolor"><br>
+					<label for="numerocopias">Número de copias (*):</label><input type="number" name="numerocopias" min="1" value="1"><br>
+					<label for="resolucionfotos">Resolución de las fotos (DPI):</label><input type="number" name="resolucionfotos" min="150" max="900" step="150" value="150"><br>
+					<label for="album">Álbum:</label>
 						<select>
 							<option value="album1">Álbum 1</option>
 							<option value="album2">Álbum 2</option>
 							<option value="album3">Álbum 3</option>
 							<option value="album4">Álbum 4</option>
-						</select>
-					<p>Fecha de recepción:</p>
-						<input type="text" name="dia" size="2" maxlength="2" />/<input type="text" name="mes" size="2" maxlength="2" />/<input type="text" name="año" size="2" maxlength="2" />
-					<p>Impresión</p>
+						</select><br>
+					<label for="fechaderecepcion">Fecha de recepción:</label>
+						<input type="text" name="dia" size="2" maxlength="2" />/<input type="text" name="mes" size="2" maxlength="2" />/<input type="text" name="año" size="2" maxlength="2" /><br>
+					<label for="impresion">Impresión:</label>
 						<input type="radio" name="color" id="color" value="Color">
 							<label for="color">Color</label>
 						<input type="radio" name="blancoynegro" id="blancoynegro" value="Blanco y negro">
