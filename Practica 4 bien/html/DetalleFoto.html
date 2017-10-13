@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--Desarrollo de Aplicaciones Web-->
+<!-- Carlos, Joan-->
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Foto. Pictures &amp; Images</title>
+		<meta name="description" content="Pagina web de almacenamiento y difusión de fotos para la asignatura Programación Hipermedia">
+		<meta name="keywords" content="fotos, imagenes, pictures, images, album, pagina web, pictures &amp; images, compartir fotos">
+		<link rel="stylesheet" href="../css/index.css">
+	</head>
+	<body>
+		<header>
+			<div class="cabeceraizquierda"><a href="index.html"><img src="../images/logo.png" alt="Logo" width=170></a></div>
+			<div class="cabeceraderecha">
+				 <form action="usuarioRegistrado.html" method="post" class="formularioacceso">
+						 <label for="usuario">Usuario:</label><input type="text" id="usuario" name="usuario" required><br>
+						 <label for="contraseña">Contraseña:</label><input type="password" id="contraseña" name="contrasena" required><br>
+						 <input type="submit" value="Entrar" id="entrar">
+				 </form>
+				 <nav class="enlacescabecera">¿No estás registrado?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="paginaRegistro.html"><em>Regístrate</em></a>&nbsp;|&nbsp;<a href="busqueda.html"><em>Búsqueda avanzada</em></a><nav>
+			 </div>
+		</header>
+		<main>
+			<h2>Detalles de la foto</h2>
+			<section class="fotografia">
+                <img src="../images/foto2.jpg" alt="Imagen" width=400>
+                <ul>
+                    <li>Título: Carretera</li>
+                    <li>Fecha: 07/09/2017</li>
+                    <li>País: España</li>
+                    <li>Álbum: Viaje a Madrid</li>
+                    <li>Usuario: Jooann7</li>
+                </ul>
+			</section>
+		</main>
+		<footer>
+			<p>Pictures &amp; Images es una web creada por Joan Orts y Carlos Aracil para la asignatura de Desarrollo de Aplicaciones Web de la Universidad de Alicante</p>
+			<p>Copyright 2017</p>
+		</footer>
+	</body>
+</html>
