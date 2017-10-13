@@ -97,15 +97,6 @@ header .formularioacceso{
 	background-color: white;
 	border-style: solid;
 	border-color:rgb(40,40,40);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-	-webkit-transition-duration: 0.4s;
-=======
-	-webkit-transition-duration: 0.4s; 
->>>>>>> 4a708ae9413ba6fc9edecb8c1744d789cb0d56ee
-	transition-duration: 0.4s;
->>>>>>> 97cd6ce6d9c38bfc536c7b3974315fce98e7b616
 }
 
 .enlacescabecera{
@@ -128,8 +119,6 @@ footer{
 
 main a{
 	color:black;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
 
 .seccionfotos{
