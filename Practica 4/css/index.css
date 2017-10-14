@@ -166,3 +166,8 @@ label[for="color"]{
 	width: 95px;
 }
 
+input:focus{
+	outline: 3px solid rgb(40,40,40);;
+}
+
+
