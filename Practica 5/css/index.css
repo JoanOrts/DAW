@@ -57,6 +57,10 @@ header .formularioacceso{
 	margin-top: 10px;
 }
 
+input[type=number]{
+	width: 55px;
+}
+
 .formulariobusqueda, .formularioregistro{
 	width: 650px;
     margin: 0 auto;
@@ -180,4 +184,13 @@ p{
 
 input:focus{
 	outline: 3px solid rgb(40,40,40);;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:white; 
+    border-color:black;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
 }
