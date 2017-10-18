@@ -308,6 +308,10 @@ footer p{
 	header {
 		height: 195px;
 	}
+	
+	footer p{
+		margin-bottom: 0px;
+	}
 }
 
 @media (max-width: 443px){
