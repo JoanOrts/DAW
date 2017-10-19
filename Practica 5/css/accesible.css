@@ -29,7 +29,7 @@ header .cabeceraizquierda{
 	margin-left: 10px;
 }
 
-header img{
+.cabeceraizquierda img{
 	width: 250px;
 }
 
@@ -250,6 +250,14 @@ img:hover{
 footer p{
     padding-left: 0px;
     text-align: center;
+}
+
+main form{
+	font-size: 1.2em;
+}
+
+main input{
+	font-size: 1.2em;
 }
 
 @media (max-width: 1271px) {
