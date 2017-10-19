@@ -143,7 +143,6 @@ main a{
 	border: 3px solid black;
 	border-radius: 25px;
 	padding: 10px;
-	text-align: center;
 	margin-top: 39px;
 }
 
@@ -215,6 +214,17 @@ input[type=submit] {
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px;
+	margin-right: 10px;
+	
+}
+
+header input[type=submit]{
+	margin-right: 0px;
+}
+
+.botonet{
+	width: 100%;
+	    text-align: right;
 }
 
 footer p{
