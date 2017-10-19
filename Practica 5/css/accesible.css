@@ -2,18 +2,24 @@
 	margin: 0px;
 	padding: 0px;
 	font-family:Verdana;
-	background-color:#FFFF00;
+	background-color:#FFFFFF;
 }
 
 main{
 	margin-bottom: 100px;
+	
+}
+
+main h2{
+	font-size: 3em;
 }
 
 header{
 	color: white;
 	background-color: rgb(40,40,40);
 	width: 100%;
-	height: 120px;
+	height: 190px;
+	font-size: 1.4em;
 }
 
 header .cabeceraizquierda{
@@ -21,6 +27,10 @@ header .cabeceraizquierda{
 	width: 33%;
 	top:0px;
 	margin-left: 10px;
+}
+
+header img{
+	width: 250px;
 }
 
 header .cabeceraderecha{
@@ -116,6 +126,13 @@ a {
 	color: white;
 }
 
+.enlacescabecera {
+		display: block;
+		text-align: center;
+		margin: auto 0;
+		padding-top: 27px;
+	}
+
 footer{
     position: fixed;
 	background-color: rgb(40,40,40);
@@ -190,7 +207,24 @@ p{
 }
 
 input:focus{
-	outline: 3px solid rgb(40,40,40);;
+	outline: 4px solid red;
+}
+
+input:hover{
+	outline: 4px solid red;
+}
+
+a:focus{
+	outline: 4px solid red;
+}
+
+a:hover{
+	outline: 4px solid red;
+}
+
+img:hover{
+	opacity: 0.5;
+	outline: 4px solid red;
 }
 
 input[type=submit] {
@@ -222,7 +256,7 @@ footer p{
 @media (max-width: 750px) {
 
 	header{
-		height: 150px;
+		height: 220px;
 	}
 
 	.cabeceraderecha{
@@ -247,12 +281,6 @@ footer p{
 		position: inherit;
 	}
 
-	.enlacescabecera {
-		display: block;
-		text-align: center;
-		margin: auto 0;
-		padding-top: 27px;
-	}
 }
 
 @media (max-width: 600px) {
@@ -297,7 +325,7 @@ footer p{
 	}
 
 	header .cabeceraderecha{
-		top: 110px;
+		top: 160px;
 	}
 
 	.enlacescabecera{
@@ -311,7 +339,7 @@ footer p{
 	}
 
 	header {
-		height: 180px;
+		height: 340px;
 	}
 }
 
