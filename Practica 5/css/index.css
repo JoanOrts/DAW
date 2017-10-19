@@ -255,9 +255,19 @@ footer p{
 		width: 350px;
 	}
 	
+	.formulariobusqueda {
+    width: 350px;
+	}
+	
+	.formulariobusqueda label{
+		width: 100px;
+	}
+	
 	.formularioregistro label{
 		width: 100px;
 	}
+	
+
 	
 	header br{
 		display: none;
