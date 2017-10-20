@@ -1,4 +1,4 @@
-﻿* {
+﻿*, body {
     cursor: url(http://s3-us-west-2.amazonaws.com/s.cdpn.io/3174/cursor.png), auto;
 }
 
@@ -13,7 +13,7 @@ html, body{
 
 main{
 	margin-bottom: 100px;
-	
+
 }
 
 main h2{
@@ -219,7 +219,7 @@ input[type=submit] {
     -webkit-border-radius: 5px;
     border-radius: 5px;
 	margin-right: 10px;
-	
+
 }
 
 header input[type=submit]{
