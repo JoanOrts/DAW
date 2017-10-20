@@ -187,20 +187,16 @@ p{
 }
 
 input:focus{
-	outline: 2px solid yellow;;
+	outline: 2px solid black;
 }
 
 
 input:focus{
-	outline: 2px solid yellow;
+	outline: 2px solid black;
 }
 
 input:hover{
-	outline: 2px solid yellow;
-}
-
-a:focus{
-	outline: 2px solid yellow;
+	outline: 2px solid black;
 }
 
 img:hover{
