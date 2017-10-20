@@ -203,10 +203,6 @@ a:focus{
 	outline: 2px solid yellow;
 }
 
-a:hover{
-	outline: 2px solid yellow;
-}
-
 img:hover{
 	opacity: 0.5;
 }
