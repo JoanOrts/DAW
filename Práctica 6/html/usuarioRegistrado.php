@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--Desarrollo de Aplicaciones Web-->
+<!-- Carlos, Joan-->
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Jooann7. Pictures &amp; Images</title>
+		<meta name="description" content="Pagina web de almacenamiento y difusión de fotos para la asignatura Programación Hipermedia">
+		<meta name="keywords" content="fotos, imagenes, pictures, images, album, pagina web, pictures &amp; images, compartir fotos">
+		<link rel="stylesheet" href="../css/index.css" media="screen">
+		<link rel="stylesheet" href="../css/print.css" media="print">
+		<link rel="alternate stylesheet" href="../css/accesible.css" media="screen" title="Modo Accesible">
+	</head>
+	<body>
+		<header>
+			<div class="cabeceraizquierda"><a href="index.php"><img src="../images/logo.png" alt="Logo" width=170></a></div>
+			<div class="cabeceraderecha">
+				<a href="usuarioRegistrado.php">Jooann7</a>
+				<a href="usuarioRegistrado.php"><img src="../images/usuario.png" alt="icono usuario" width=40></a><br><br>
+				<nav class="enlacescabecera"><a href="busqueda.php"><em>Búsqueda avanzada</em></a></nav>
+			</div>
+		</header>
+		<main>
+			<h2>Bienvenido a Pictures &amp; Images, <strong>Jooann7</strong></h2>
+			<section class="datosusuario">
+				<p><a href="">Mis datos</a></p>
+				<p><a href="">Darme de baja</a></p>
+				<p><a href="">Mis álbumes</a></p>
+				<p><a href="">Crear álbum</a></p>
+				<p><a href="solicitarAlbum.php">Solicitar álbum</a></p>
+				<p><a href="paginaPrincipal.php">Salir</a></p>
+			</section>
+		</main>
+		<footer>
+			<p>Pictures &amp; Images es una web creada por Joan Orts y Carlos Aracil para la asignatura de Desarrollo de Aplicaciones Web de la Universidad de Alicante</p>
+			<p>Copyright 2017</p>
+		</footer>
+	</body>
+</html>
