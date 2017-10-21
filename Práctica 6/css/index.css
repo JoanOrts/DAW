@@ -169,7 +169,7 @@ label[for="color"]{
 	width: 95px;
 }
 
-h2 {
+h2{
     padding-top: 20px;
     text-align: center;
 }
@@ -182,7 +182,7 @@ table, th, td{
     text-align: left;
 }
 
-p{
+p, h3{
 	padding-left: 90px;
 }
 

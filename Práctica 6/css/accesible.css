@@ -195,7 +195,7 @@ label[for="color"]{
 	width: 95px;
 }
 
-h2 {
+h2, h3 {
     padding-top: 20px;
     text-align: center;
 		font-size:2em;

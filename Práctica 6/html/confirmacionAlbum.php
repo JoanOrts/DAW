@@ -2,24 +2,9 @@
 <!--Desarrollo de Aplicaciones Web-->
 <!-- Carlos, Joan-->
 <html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<title>Confirmación. Pictures &amp; Images</title>
-		<meta name="description" content="Pagina web de almacenamiento y difusión de fotos para la asignatura Programación Hipermedia">
-		<meta name="keywords" content="fotos, imagenes, pictures, images, album, pagina web, pictures &amp; images, compartir fotos">
-		<link rel="stylesheet" href="../css/index.css" media="screen">
-		<link rel="stylesheet" href="../css/print.css" media="print">
-		<link rel="alternate stylesheet" href="../css/accesible.css" media="screen" title="Modo Accesible">
-	</head>
+	<?php include("head.php"); ?>
 	<body>
-		<header>
-			<div class="cabeceraizquierda"><a href="index.php"><img src="../images/logo.png" alt="Logo" width=170></a></div>
-			<div class="cabeceraderecha">
-				<a href="usuarioRegistrado.php">Jooann7</a>
-				<a href="usuarioRegistrado.php"><img src="../images/usuario.png" alt="icono usuario" width=40></a><br><br>
-				<nav class="enlacescabecera"><a href="busqueda.php"><em>Búsqueda avanzada</em></a></nav>
-			</div>
-		</header>
+		<?php include("headerRegistrado.php"); ?>
 		<main>
 			<h2>Confirmación álbum</h2>
 			<p>Resumen de su pedido:</p>
@@ -84,9 +69,6 @@
 
 			<p>Gracias por confiar en el servicio de impreso de álbumes de <strong>Pictures &amp; Images</strong>, el álbum lo recibirá la fecha que ha especificado.</p>
 		</main>
-		<footer>
-			<p>Pictures &amp; Images es una web creada por Joan Orts y Carlos Aracil para la asignatura de Desarrollo de Aplicaciones Web de la Universidad de Alicante</p>
-			<p>Copyright 2017</p>
-		</footer>
+		<?php include("footer.php"); ?>
 	</body>
 </html>
