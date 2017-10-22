@@ -19,35 +19,35 @@
 				<tbody>
 					<tr>
 						<td><strong>Nombre completo:</strong></td>
-						<td>Joan Orts</td>
+						<td><?php echo $_POST["nombrecompleto"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Título del áblum:</strong></td>
-						<td>Viaje a Madrid</td>
+						<td><?php echo $_POST["tituloalbum"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Texto adicional:</strong></td>
-						<td>Vacaciones de verano 2012</td>
+						<td><?php echo $_POST["textoadicional"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Correo electrónico:</strong></td>
-						<td>joan@si.com</td>
+						<td><?php echo $_POST["correoelectronico"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Dirección:</strong></td>
-						<td>C/Falsa, 123, 01234, Benidorm, Alicante</td>
+						<td>C/<?php echo $_POST["calle"];?>, <?php echo $_POST["numero"];?>, <?php echo $_POST["cp"];?>, <?php echo $_POST["localidad"];?>, <?php echo $_POST["provincia"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Color de portada:</strong></td>
-						<td>Verde pistacho.</td>
+						<td><?php echo $_POST["colorportada"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Número de copias:</strong></td>
-						<td>1</td>
+						<td><?php echo $_POST["numerocopias"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Resolución de las fotos:</strong></td>
-						<td>150 DPI</td>
+						<td><?php echo $_POST["resolucionfotos"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Álbum de PI:</strong></td>
@@ -55,11 +55,11 @@
 					</tr>
 					<tr>
 						<td><strong>Fecha de recepción:</strong></td>
-						<td>02/02/2018</td>
+						<td><?php echo $_POST["dia"];?>/<?php echo $_POST["mes"];?>/<?php echo $_POST["anyo"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Impresión:</strong></td>
-						<td>Color</td>
+						<td><?php echo $_POST["color"];?></td>
 					</tr>
 				</tbody>
 			</table>

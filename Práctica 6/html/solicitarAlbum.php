@@ -46,7 +46,7 @@
 				</table>
 			<h2>Formulario de solicitud</h2>
 			<p>Rellene el formulario. Los campos con (*) son obligatorios</p>
-				<form action="confirmacionAlbum.php" class="albumsolicitar">
+				<form action="confirmacionAlbum.php" class="albumsolicitar" method="post">
 					<label for="nombrecompleto">Nombre completo (*):</label><input type="text" id="nombrecompleto" name="nombrecompleto" placeholder="Nombre completo" maxlength="200" required><br>
 					<label for="tituloalbum">Título del álbum (*):</label><input type="text" id="tituloalbum" name="tituloalbum" placeholder="Título del álbum" maxlength="200"><br>
 					<label for="textoadicional">Texto adicional:</label><textarea name="textoadicional" id="textoadicional" rows="10" cols="60" maxlength="400"></textarea><br>
@@ -57,7 +57,7 @@
 					<input type="number" name="cp" placeholder="CP" size="6">
 					<input type="text" name="localidad" placeholder="Localidad">
 					<input type="text" name="provincia" placeholder="Provincia"><br>
-					<label for="colorportada">Color de portada:</label><input type="color" id="colorportada" name="favcolor"><br>
+					<label for="colorportada">Color de portada:</label><input type="color" id="colorportada" name="colorportada"><br>
 					<label for="numerocopias">Número de copias (*):</label><input type="number" id="numerocopias" name="numerocopias" min="1" value="1"><br>
 					<label for="resolucionfotos">Resolución de las fotos (DPI):</label><input type="number" id="resolucionfotos" name="resolucionfotos" min="150" max="900" step="150" value="150"><br>
 					<label>Álbum:</label>
@@ -68,7 +68,7 @@
 							<option value="album4">Álbum 4</option>
 						</select><br>
 					<label>Fecha de recepción:</label>
-						<input type="text" name="dia" size="2" maxlength="2" />/<input type="text" name="mes" size="2" maxlength="2" />/<input type="text" name="año" size="2" maxlength="2" /><br>
+						<input type="text" name="dia" size="2" maxlength="2" />/<input type="text" name="mes" size="2" maxlength="2" />/<input type="text" name="anyo" size="4" maxlength="4" /><br>
 					<label>Impresión:</label>
 					<label for="color">Color<input type="radio" name="color" id="color" value="Color"></label>
 					<label for="blancoynegro">Blanco y negro<input type="radio" name="color" id="blancoynegro" value="Blanco y negro"></label><br>
