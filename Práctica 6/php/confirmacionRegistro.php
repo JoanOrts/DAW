@@ -1,4 +1,4 @@
-<?php 
+<?php
 $title="Confirmar registro. Pictures &amp; Images";
 require_once("head.php");
 require_once("header.php");
@@ -50,10 +50,6 @@ require_once("header.php");
 				</tbody>
 			</table>
 			</section>
-			<h3>Coste del álbum</h3>
-			<p>El coste total del álbum es de <strong>5.00€</strong></p>
-
-			<p>Gracias por confiar en el servicio de impreso de álbumes de <strong>Pictures &amp; Images</strong>, el álbum lo recibirá la fecha que ha especificado.</p>
 		</main>
 <?php
 require_once("footer.php");

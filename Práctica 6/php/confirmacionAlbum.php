@@ -1,4 +1,4 @@
-<?php 
+<?php
 $title="Confirmación álbum. Pictures &amp; Images";
 require_once("head.php");
 require_once("header.php");
@@ -63,7 +63,33 @@ require_once("header.php");
 			</table>
 			</section>
 			<h3>Coste del álbum</h3>
-			<p>El coste total del álbum es de <strong>5.00€</strong></p>
+			<?php function calcular_precio(){
+    		$numeropag = 12;
+				$numerofotos = 4;
+				$resolucion = $_POST["resolucionfotos"];
+				$color = $_POST["color"];
+				if($numeropag < 5){
+					$preciopag = 0.10;
+				}
+				elseif ($numeropag >= 5 && $numeropag <= 10) {
+					$preciopag = 0.08;
+				}
+				else{
+					$preciopag = 0.07;
+				}
+				if($resolucion > 300){
+					$precioresolucion = 0.02;
+				}
+				if($color = "Color"){
+					$preciocolor = 0.20;
+				}
+				else {
+					$preciocolor = 0.05;
+				}
+				$preciototal = $numeropag * $preciopag + $numerofotos * $preciocolor + $numerofotos * $precioresolucion;
+				return $preciototal;
+			}?>
+			<p>El coste total del álbum es de <strong><?php echo calcular_precio();?></strong></p>
 
 			<p>Gracias por confiar en el servicio de impreso de álbumes de <strong>Pictures &amp; Images</strong>, el álbum lo recibirá la fecha que ha especificado.</p>
 		</main>
