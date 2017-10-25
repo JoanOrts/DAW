@@ -1,10 +1,11 @@
 <?php
 $title="Perfil. Pictures &amp; Images";
+$user = $_GET["user"];
 require_once("head.php");
 require_once("headerRegistrado.php");
 ?>
 		<main>
-			<h2>Bienvenido a Pictures &amp; Images, <strong>Jooann7</strong></h2>
+			<h2>Bienvenido a Pictures &amp; Images, <strong><?php echo $_GET["user"]; ?></strong></h2>
 			<section class="datosusuario">
 				<p><a href="">Mis datos</a></p>
 				<p><a href="">Darme de baja</a></p>

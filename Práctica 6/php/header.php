@@ -8,7 +8,7 @@
 				 <input type="submit" value="Entrar" id="entrar">
 				</form>
 				<?php
-					if(isset($_GET["error"])){
+					if(isset($_POST["error"])){
 						echo "<p class='mensaje_error'>Nombre de cuenta o contraseña incorrectos</p>";
 					}
 				?>
