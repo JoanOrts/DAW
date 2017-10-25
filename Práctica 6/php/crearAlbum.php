@@ -1,8 +1,8 @@
-<?php 
+<?php
 $title="Crear álbum. Pictures &amp; Images";
 require_once("head.php");
-require_once("header.php");
-?>	
+require_once("headerRegistrado.php");
+?>
 <main>
     <h2>Formulario creación album</h2>
 		<p>Introduce los siguientes datos:</p>
@@ -18,4 +18,3 @@ require_once("header.php");
 <?php
 require_once("footer.php");
 ?>
-

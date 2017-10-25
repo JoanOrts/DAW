@@ -1,7 +1,7 @@
-<?php 
+<?php
 $title="Perfil. Pictures &amp; Images";
 require_once("head.php");
-require_once("header.php");
+require_once("headerRegistrado.php");
 ?>
 		<main>
 			<h2>Bienvenido a Pictures &amp; Images, <strong>Jooann7</strong></h2>
@@ -9,7 +9,7 @@ require_once("header.php");
 				<p><a href="">Mis datos</a></p>
 				<p><a href="">Darme de baja</a></p>
 				<p><a href="">Mis álbumes</a></p>
-				<p><a href="">Crear álbum</a></p>
+				<p><a href="crearAlbum.php">Crear álbum</a></p>
 				<p><a href="solicitarAlbum.php">Solicitar álbum</a></p>
 				<p><a href="paginaPrincipal.php">Salir</a></p>
 			</section>

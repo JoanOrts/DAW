@@ -1,7 +1,7 @@
-<?php 
+<?php
 $title="Solicitar álbum. Pictures &amp; Images";
 require_once("head.php");
-require_once("header.php");
+require_once("headerRegistrado.php");
 ?>
 		<main>
 			<h2>Solicitar álbum</h2>

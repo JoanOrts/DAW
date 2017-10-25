@@ -1,7 +1,7 @@
 <?php
 $title="Confirmación álbum. Pictures &amp; Images";
 require_once("head.php");
-require_once("header.php");
+require_once("headerRegistrado.php");
 ?>
 		<main>
 			<h2>Confirmación álbum</h2>
@@ -80,7 +80,7 @@ require_once("header.php");
 				if($resolucion > 300){
 					$precioresolucion = 0.02;
 				}
-				if($color = "Color"){
+				if($color == "Color"){
 					$preciocolor = 0.20;
 				}
 				else {
