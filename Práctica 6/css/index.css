@@ -108,6 +108,13 @@ input[type=number]{
 	margin-right: 10px;
 }
 
+.incorrecto{
+	position: absolute;
+    top: 65px;
+    color: orangered;
+    font-weight: bold;
+}
+
 
 a {
 	color: white;
@@ -228,6 +235,8 @@ footer p{
     text-align: center;
 }
 
+
+
 @media (max-width: 1271px) {
   .seccionfotos{
 	    width: 846px;
@@ -273,6 +282,13 @@ footer p{
 		text-align: center;
 		margin: auto 0;
 		padding-top: 27px;
+	}
+	.incorrecto {
+		    position: absolute;
+    top: 78px;
+    color: orangered;
+    font-weight: bold;
+    right: 11px;
 	}
 }
 
@@ -322,7 +338,17 @@ footer p{
 	}
 
 	.enlacescabecera{
-		padding-top: 5px;
+		padding-top: 0px;
+	}
+	.incorrecto{
+		position: relative; 
+    
+    color: orangered;
+    font-weight: bold;
+    top: 0px;
+    display: block;
+    text-align: center;
+    margin: auto 0;
 	}
 
 	header .cabeceraizquierda{

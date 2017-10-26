@@ -17,7 +17,7 @@ elseif($usuario == $usu3 && $contrasenya == $con3){
   header("Location: http://localhost/DAW/php/usuarioRegistrado.php?user=$usu3");
 }
 else{
-  header("Location: http://localhost/DAW/php/index.php");
+  header("Location: http://localhost/DAW/php/index.php?error");
 }
 
 ?>

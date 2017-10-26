@@ -8,8 +8,8 @@
 				 <input type="submit" value="Entrar" id="entrar">
 				</form>
 				<?php
-					if(isset($_POST["error"])){
-						echo "<p class='mensaje_error'>Nombre de cuenta o contraseña incorrectos</p>";
+					if(isset($_GET["error"])){
+						echo "<nav class='incorrecto'>Nombre de cuenta o contraseña incorrecta</nav>";
 					}
 				?>
 				<nav class="enlacescabecera">¿No estás registrado?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="paginaRegistro.php"><em>Regístrate</em></a>&nbsp;|&nbsp;<a href="busqueda.php"><em>Búsqueda avanzada</em></a><nav>
