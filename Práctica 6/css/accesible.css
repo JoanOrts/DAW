@@ -137,7 +137,14 @@ a {
 		text-align: center;
 		margin: auto 0;
 		padding-top: 27px;
-	}
+}
+	
+.incorrecto{
+	position: absolute;
+    top: 65px;
+    color: orangered;
+    font-weight: bold;
+}
 
 footer{
     position: fixed;
@@ -305,6 +312,14 @@ main input{
 	footer{
 		position: inherit;
 	}
+	
+	.incorrecto {
+		    position: absolute;
+    top: 78px;
+    color: orangered;
+    font-weight: bold;
+    right: 11px;
+	}
 
 }
 
@@ -355,6 +370,17 @@ main input{
 
 	.enlacescabecera{
 		padding-top: 5px;
+	}
+	
+	.incorrecto{
+		position: relative; 
+    
+    color: orangered;
+    font-weight: bold;
+    top: 0px;
+    display: block;
+    text-align: center;
+    margin: auto 0;
 	}
 
 	header .cabeceraizquierda{
