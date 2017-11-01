@@ -1,8 +1,9 @@
 <?php 
 session_start();
+require_once("comprobarSesion.php");
 $title="Detalle Foto. Pictures &amp; Images";
 require_once("head.php");
-require_once("header.php");
+require_once("headerRegistrado.php");
 ?>
 		<main>
 			<h2>Detalles de la foto</h2>

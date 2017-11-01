@@ -1,8 +1,14 @@
 <?php 
 session_start();
+require_once("controlAcceso.php");
 $title="Resultados búsqueda. Pictures &amp; Images";
 require_once("head.php");
-require_once("header.php");
+if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
+	require_once("headerRegistrado.php");
+}
+else{
+	require_once("header.php");
+}
 ?>	
 		<main>
 			<h2>Resultados de la búsqueda</h2>

@@ -7,9 +7,8 @@
 					if(isset($_COOKIE['usuario'])&&isset($_COOKIE['date'])){
 						$usuarios = explode(":",$_COOKIE['usuario']);
 				?>
-				<a href="usuarioRegistrado.php"><img src="../images/usuario.png" alt="icono usuario" width=40></a>
-				<nav class="formularioacceso"> Hola. <? echo $usuarios[0]?> Última conexión: <?php echo $_COOKIE['date']?></nav>
-				<nav class="enlacescabecera"><a href="index.php?olvidar">Cerrar sesión</a>&nbsp;|&nbsp;<a href="busqueda.php"><em>Búsqueda avanzada</em></a></nav>
+				<nav class="formularioacceso"> Hola, <strong><? echo $usuarios[0]?></strong><br> Tu última conexión fue: <?php echo $_COOKIE['date']?></nav><br><br>
+				<nav class="enlacescabecera"><a href="index.php?entrar">Entrar</a>&nbsp;|&nbsp;<a href="index.php?olvidar">Olvidar</a>&nbsp;|&nbsp;<a href="busqueda.php">Búsqueda avanzada</a></nav>
 
 				<?php
 					}
@@ -17,7 +16,7 @@
 				?>
 
 
-				<form action="controlAcceso.php" method="post" class="formularioacceso">
+				<form action="" method="post" class="formularioacceso">
 					 <label for="usuario">Usuario:</label><input type="text" id="usuario" name="usuario" required><br>
 					 <label for="contraseña">Contraseña:</label><input type="password" id="contraseña" name="contrasena" required><br>
 					 <label for="Recordarme">Recordarme</label><input type="checkbox" name="Recordarme" value="Recordarme" id="Recordarme">
@@ -26,7 +25,7 @@
 				<nav class="enlacescabecera">¿No estás registrado?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="paginaRegistro.php"><em>Regístrate</em></a>&nbsp;|&nbsp;<a href="busqueda.php"><em>Búsqueda avanzada</em></a><nav>
 				<?php
 					}if(isset($_GET["error"])){
-						echo "<nav class='incorrecto'>Nombre de cuenta o contraseña incorrecta</nav>";
+						echo "<nav class='incorrecto'>Los datos no son correctos</nav>";
 					}
 				?>
 			</div>
