@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $title="Resultados búsqueda. Pictures &amp; Images";
 require_once("head.php");
 require_once("header.php");

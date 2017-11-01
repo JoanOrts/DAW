@@ -1,9 +1,11 @@
 <?php 
+session_start();
 $title="Búsqueda. Pictures &amp; Images";
 require_once("head.php");
-require_once("header.php");
-?>	
 
+	require_once("header.php");
+
+?>
 	
 		<main>
 			<h2>Búsqueda</h2>

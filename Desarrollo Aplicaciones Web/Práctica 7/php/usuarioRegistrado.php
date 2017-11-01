@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title="Perfil. Pictures &amp; Images";
 $user = $_GET["user"];
 require_once("head.php");

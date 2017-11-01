@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title="Crear álbum. Pictures &amp; Images";
 require_once("head.php");
 require_once("headerRegistrado.php");
