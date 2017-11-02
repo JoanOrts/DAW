@@ -1,8 +1,7 @@
-	<body>
-		<header>
+<header>
 			<div class="cabeceraizquierda"><a href="index.php"><img src="../images/logo.png" alt="Logo" width=170></a></div>
 			<div class="cabeceraderecha">
-				
+
 				<?php
 					if(isset($_COOKIE['usuario'])&&isset($_COOKIE['date'])){
 						$usuarios = explode(":",$_COOKIE['usuario']);
@@ -29,4 +28,4 @@
 					}
 				?>
 			</div>
-		</header>
+</header>

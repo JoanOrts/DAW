@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("comprobarSesion.php");
 $title="Perfil. Pictures &amp; Images";
 require_once("head.php");
 require_once("headerRegistrado.php");
@@ -12,9 +13,9 @@ require_once("headerRegistrado.php");
 					echo $usuarios[0];
 					}
 					else{
-						
-						echo $_SESSION["user"]; 
-					
+
+						echo $_SESSION["user"];
+
 					}
 				?>
 

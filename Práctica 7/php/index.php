@@ -1,7 +1,9 @@
-<?php 
+<?php
 session_start();
 	if(isset($_GET["salir"])){
 		session_destroy();
+		setcookie('usuario','', time()-999999);
+		setcookie('date','', time()-999999);
 		header("location:index.php");
 	}
 
@@ -11,7 +13,7 @@ session_start();
 			$_SESSION["Estado"]="Autenticado";
 			$date= isset($_COOKIE['date']);
 			$fecha=date("j/m/Y - G:i");
-			setcookie('date',$fecha,time() +60*60*7);   
+			setcookie('date',$fecha,time() +60*60*7);
 			header("location:index.php");
 		}
 		else{

@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once("comprobarSesion.php");
 $title="Solicitar álbum. Pictures &amp; Images";
 require_once("head.php");
 require_once("headerRegistrado.php");
