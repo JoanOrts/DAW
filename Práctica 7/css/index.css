@@ -144,6 +144,10 @@ main a{
 	border-radius: 25px;
 }
 
+.avatarusuario{
+	text-align: center;
+}
+
 .datosusuario{
 	width: 300px;
 	margin: 0 auto;
@@ -229,6 +233,8 @@ header input[type=submit]{
 	width: 100%;
 	    text-align: right;
 }
+
+
 
 footer p{
     padding-left: 0px;

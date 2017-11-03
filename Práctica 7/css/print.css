@@ -110,6 +110,10 @@ main .datosusuario{
     border-radius: 25px;
 }
 
+.avatarusuario{
+	text-align: center;
+}
+
 img {
     margin: 10px;
 }
