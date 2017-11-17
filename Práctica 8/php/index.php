@@ -11,7 +11,10 @@ if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
 else{
 	require_once("header.php");
 }
+require_once("conexionbd.php");
 
 require_once("inicio.php");
+
+mysqli_close($mysqli);
 require_once("footer.php");
 ?>

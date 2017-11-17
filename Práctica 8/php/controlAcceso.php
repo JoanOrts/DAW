@@ -1,17 +1,18 @@
 <?php
-$usu1 = "joan7";
-$con1 = "dawmola";
-$usu2 = "carlos7";
-$con2 = "jajaja";
-$usu3 = "sergio7";
-$con3 = "teneisun10";
-
+require_once("conexionbd.php");
 if(isset($_POST)&&isset($_POST["usuario"])){
 
 $usuario = $_POST["usuario"];
 $contrasenya = $_POST["contrasena"];
 
-	if(($usuario == $usu1 && $contrasenya == $con1) || ($usuario == $usu2 && $contrasenya == $con2) || ($usuario == $usu3 && $contrasenya == $con3)){
+$sentencia = "select * from USUARIOS where NomUsuario='".$_POST['usuario']."'";
+$todo_usu = mysqli_query($mysqli, $sentencia);
+if(!$todo_usu || $mysqli->errno){
+	die("Error: No se pudo realizar la consulta".$mysqli->error);
+}
+$usuarios=$todo_usu->fetch_assoc();
+
+	if(($usuarios['NomUsuario'] == $usuario) && ($usuarios['Clave'] == $contrasenya)){
 		if(isset($_POST['Recordarme'])){
 		                $date= isset($_COOKIE['date']);
 		                $fecha=date("j/m/Y - G:i");

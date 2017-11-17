@@ -34,7 +34,6 @@ require_once("conexionbd.php");
 					echo ">".$pais['NomPais']."</option>";
 				}
 				echo "</select><br>";
-				mysqli_free_result($paises);
 			?><br><br>
 			<label for="foto">Foto:</label><input type="file" name="foto"><br><br>
 			<div class="botonet"><input type="submit" class="botonsubmit" value="¡Regístrate!" onclick = "location='PaginaPrincipal.php'"></div>
@@ -42,5 +41,6 @@ require_once("conexionbd.php");
 
 	</main>
 <?php
+mysqli_close($mysqli);
 require_once("footer.php");
 ?>

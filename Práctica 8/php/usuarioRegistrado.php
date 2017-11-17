@@ -23,7 +23,8 @@ require_once("headerRegistrado.php");
 			<section class="datosusuario">
 				<p><a href="">Mis datos</a></p>
 				<p><a href="">Darme de baja</a></p>
-				<p><a href="">Mis álbumes</a></p>
+				<p><a href="misAlbumes.php">Mis álbumes</a></p>
+				<p><a href="anyadirFoto.php">Añadir Foto a Álbum</a></p>
 				<p><a href="crearAlbum.php">Crear álbum</a></p>
 				<p><a href="solicitarAlbum.php">Solicitar álbum</a></p>
 				<p><a href="index.php?salir">Salir</a></p>

@@ -1,4 +1,5 @@
 <?php
+require_once("conexionbd.php");
 if(isset($_GET["salir"])){
 		session_destroy();
 		setcookie('usuario','', time()-999999);
@@ -7,8 +8,10 @@ if(isset($_GET["salir"])){
 	}
 
 	if(isset($_GET["entrar"])){
-		$usuarios = explode(":",$_COOKIE['usuario']);
-		if(($usuarios[0]=="joan7" && $usuarios[1]=="dawmola")||($usuarios[0]=="carlos7"&& $usuarios[1]=="jajaja")||($usuarios[0]=="sergio7" && $usuarios[1]=="teneisun10")){
+		$array_usuarios = explode(":",$_COOKIE['usuario']);
+		$sentencia="select * from USUARIOS where NomUsuario='".$array_usuarios[0]."' and Clave='".$array_usuarios[1]."';";
+		$usuarios=mysqli_query($mysqli, $sentencia);
+		if($user=$usuarios->fetch_assoc()){
 			$_SESSION["Estado"]="Autenticado";
 			$date= isset($_COOKIE['date']);
 			$fecha=date("j/m/Y - G:i");

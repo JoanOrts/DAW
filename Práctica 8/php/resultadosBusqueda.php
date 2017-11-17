@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once("controlAcceso.php");
 $title="Resultados búsqueda. Pictures &amp; Images";
@@ -9,34 +9,50 @@ if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
 else{
 	require_once("header.php");
 }
-?>	
+require_once("conexionbd.php")
+?>
 		<main>
 			<h2>Resultados de la búsqueda</h2>
-			<figure class="fotografia">
-                <a href="DetalleFoto.php?id=1"><img src="../images/foto3.jpg" alt="Imagen" width=400></a>
-                <ul>
-                    <li>Título: <?php echo $_POST["titulo"];?></li>
-                    <li>Fecha: <?php echo $_POST["dia"];?>/<?php echo $_POST["mes"];?>/<?php echo $_POST["año"];?></li>
-                    <li>País: <?php echo $_POST["pais"];?></li>
-                </ul>
-			</figure><br>
-			<figure class="fotografia">
-                <a href="DetalleFoto.php?id=2"><img src="../images/foto1.jpg" alt="Imagen" width=400></a>
-                <ul>
-                    <li>Título: <?php echo $_POST["titulo"];?></li>
-                    <li>Fecha: <?php echo $_POST["dia"];?>/<?php echo $_POST["mes"];?>/<?php echo $_POST["año"];?></li>
-                    <li>País: <?php echo $_POST["pais"];?></li>
-                </ul>
-			</figure><br>
-			<figure class="fotografia">
-                <a href="DetalleFoto.php?id=3"><img src="../images/foto2.jpg" alt="Imagen" width=400></a>
-                <ul>
-                    <li>Título: <?php echo $_POST["titulo"];?></li>
-                    <li>Fecha: <?php echo $_POST["dia"];?>/<?php echo $_POST["mes"];?>/<?php echo $_POST["año"];?></li>
-                    <li>País: <?php echo $_POST["pais"];?></li>
-                </ul>
-			</figure>
+			<?php
+				$sentencia="select * from FOTOS f where f.Pais='".$_POST['pais']."'";
+				if(isset($_POST["titulo"])&&$_POST["titulo"]!=""){
+					$sentencia=$sentencia." and f.Titulo LIKE '%".$_POST['titulo']."%'";
+				}
+				if(isset($_POST["fecha"])&&$_POST["fecha"]!=""){
+					$sentencia=$sentencia." and f.Fecha='".$_POST['fecha']."'";
+				}
+				$resultados=mysqli_query($mysqli, $sentencia);
+				if(!$resultados || $mysqli->errno){
+					die("Error: No se pudo realizar la consulta".$mysqli->error);
+				}
+				while($resultado=$resultados->fetch_assoc()){
+					if($resultado['Pais']!=""){
+						$sentpais="select * from PAISES p where p.IdPais='".$resultado['Pais']."'";
+						$paises=mysqli_query($mysqli, $sentpais);
+						if(!$paises || $mysqli->errno){
+							die("Error: No se pudo realizar la consulta".$mysqli->error);
+						}
+						$pais=$paises->fetch_assoc();
+					}
+					echo "<figure class='fotografia'>";
+					if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
+						echo "<a href='DetalleFoto.php?id='".$resultado['IdFoto']."'>";
+					}
+					echo "<img src='".$resultado['Fichero']."' alt='".$resultado['Titulo']."' width=400>";
+					if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
+						echo "</a>";
+					}
+					echo "<ul>
+							<li>Título:".$resultado['Titulo']."</li>
+							<li>Fecha:".$resultado['Fecha']."</li>
+							<li>País:".$pais['NomPais']."</li>
+					</ul></figure>";
+				}
+				mysqli_free_result($resultados);
+				mysqli_free_result($paises);
+			?>
 		</main>
-<?php
-require_once("footer.php");
-?>
+		<?php
+		mysqli_close($mysqli);
+		require_once("footer.php");
+		?>

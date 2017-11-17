@@ -4,6 +4,7 @@ require_once("comprobarSesion.php");
 $title="Solicitar álbum. Pictures &amp; Images";
 require_once("head.php");
 require_once("headerRegistrado.php");
+require_once("conexionbd.php")
 ?>
 		<main>
 			<h2>Solicitar álbum</h2>
@@ -60,13 +61,21 @@ require_once("headerRegistrado.php");
 					<label for="colorportada">Color de portada:</label><input type="color" id="colorportada" name="colorportada"><br>
 					<label for="numerocopias">Número de copias (*):</label><input type="number" id="numerocopias" name="numerocopias" min="1" value="1"><br>
 					<label for="resolucionfotos">Resolución de las fotos (DPI):</label><input type="number" id="resolucionfotos" name="resolucionfotos" min="150" max="900" step="150" value="150"><br>
-					<label>Álbum:</label>
-						<select>
-							<option value="album1">Álbum 1</option>
-							<option value="album2">Álbum 2</option>
-							<option value="album3">Álbum 3</option>
-							<option value="album4">Álbum 4</option>
-						</select><br>
+					<?php
+						$sentencia="select * from ALBUMES a, USUARIOS u where a.Usuario = u.IdUsuario and u.NomUsuario='".$_SESSION["user"]."';";
+						$album=mysqli_query($mysqli, $sentencia);
+						if(!$album || $mysqli->errno){
+							die("Error: No se pudo realizar la consulta".$mysqli->error);
+						}
+						echo "<label for='album'>Albumes:</label><select id='album' name='album'>";
+						while($albu=$album->fetch_assoc()){
+							echo "<option value=".$albu['IdAlbum'];
+							if(isset($_POST["album"])&&$_POST["album"]==$albu['IdAlbum']){ echo "selected='selected'"; }
+							echo ">".$albu['Titulo']."</option>";
+						}
+						echo "</select>(*)<br>";
+						mysqli_free_result($album);
+					?><br>
 					<label>Fecha de recepción:</label>
 						<input type="text" name="dia" size="2" maxlength="2" />/<input type="text" name="mes" size="2" maxlength="2" />/<input type="text" name="anyo" size="4" maxlength="4" /><br>
 					<label>Impresión:</label>
@@ -76,6 +85,7 @@ require_once("headerRegistrado.php");
 					<div class="botonet"><input type="submit" value="Solicitar" class="botonsubmit"></div>
 				</form>
 		</main>
-<?php
-require_once("footer.php");
-?>
+		<?php
+		mysqli_close($mysqli);
+		require_once("footer.php");
+		?>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once("acceso.php");
 require_once("controlAcceso.php");
@@ -10,18 +10,33 @@ if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
 else{
 	require_once("header.php");
 }
+require_once("conexionbd.php");
 
 ?>
-	
+
 		<main>
 			<h2>Búsqueda</h2>
 				<form action="resultadosBusqueda.php" class="formulariobusqueda" method="post">
 					<label for="titulo">Título:</label><input type="text" id="titulo" name="titulo" placeholder="Título de la foto"><br><br>
-					<label for="fecha">Fecha entre:</label><input type="number" id="fecha" name="dia" size="2" maxlength="2" placeholder="Dia"/>/<input type="number" name="mes" size="2" maxlength="2" placeholder="Mes"/>/<input type="number" name="año" size="4" maxlength="4" placeholder="Año"/>&nbsp;&nbsp;&nbsp;y&nbsp;&nbsp;&nbsp;<input type="number" name="diados" size="2" maxlength="2" placeholder="Dia"/>/<input type="number" name="mesdos" size="2" maxlength="2" placeholder="Mes"/>/<input type="number" name="añodos" size="4" maxlength="4" placeholder="Año"/><br><br>
-					<label for="pais">País:</label><input type="text" id="pais" name="pais" placeholder="País"><br><br><br>
+					<?php
+						$sentencia="select * from PAISES";
+						$paises=mysqli_query($mysqli, $sentencia);
+						if(!$paises || $mysqli->errno){
+							die("Error: No se pudo realizar la consulta".$mysqli->error);
+						}
+						echo "<label for='pais'>País:</label><select id='pais' name='pais'>";
+						while($pais=$paises->fetch_assoc()){
+							echo "<option value='".$pais['IdPais']."'";
+							if(isset($_POST["pais"])&&$_POST["pais"]==$pais['IdPais']){ echo "selected='selected'"; }
+							echo ">".$pais['NomPais']."</option>";
+						}
+						echo "</select><br>";
+					?><br>
+					<label for="fecha">Fecha:</label> <input type="date" name="fecha" id="fecha"><br><br>
 					<div class="botonet"><input type="submit" value="Buscar"></div>
 				</form>
 		</main>
-<?php
-require_once("footer.php");
-?>
+		<?php
+		mysqli_close($mysqli);
+		require_once("footer.php");
+		?>
