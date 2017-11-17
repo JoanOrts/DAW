@@ -19,11 +19,13 @@ if(!$fotos || $mysqli->errno){
 						if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
 							echo "</a>";
 						}
-						/*echo "<ul>
-								<li>Título:".$resultado['Titulo']."</li>
-								<li>Fecha:".$resultado['Fecha']."</li>
-								<li>País:".$pais['NomPais']."</li>
-						</ul>";*/
+						/*if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
+						echo "<ul>
+								<li>Título:".$foto['Titulo']."</li>
+								<li>Fecha:".$foto['Fecha']."</li>
+								<li>País:".$foto['Pais']."</li>
+						</ul>";
+					}*/
 					}
 					mysqli_free_result($fotos);
 
