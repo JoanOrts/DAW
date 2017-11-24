@@ -15,7 +15,12 @@ require_once("conexionbd.php")
 			<h2>Resultados de la búsqueda</h2>
 			<?php
 				$var = 0;
-				$sentencia="select * from FOTOS f where f.Pais='".$_POST['pais']."'";
+				$sentencia="select * from FOTOS f";
+				if(isset($_POST["pais"])&&$_POST["pais"]!=""){
+					if($_POST['pais'] != 1){
+						$sentencia=$sentencia."where f.Pais='".$_POST['pais']."'";
+					}
+				}
 				if(isset($_POST["titulo"])&&$_POST["titulo"]!=""){
 					$sentencia=$sentencia." and f.Titulo LIKE '%".$_POST['titulo']."%'";
 				}
@@ -31,14 +36,14 @@ require_once("conexionbd.php")
 						$sentpais="select * from PAISES p where p.IdPais='".$resultado['Pais']."'";
 						$paises=mysqli_query($mysqli, $sentpais);
 						if(!$paises || $mysqli->errno){
-							die("<article class='mensajerror'><p>Error: No se pudo realizar la consulta</p></article>".$mysqli->error);
+							die("Error: No se pudo realizar la consulta".$mysqli->error);
 						}
 						$pais=$paises->fetch_assoc();
 					}
-					
+
 					echo "<figure class='fotografia'>";
 					if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
-						echo "<a href='DetalleFoto.php?id=".$resultado['IdFoto']."'>";
+						echo "<a href='DetalleFoto.php?id='".$resultado['IdFoto']."'>";
 						$var = 1;
 					}
 					echo "<img src='".$resultado['Fichero']."' alt='".$resultado['Titulo']."' width=400>";
@@ -49,12 +54,12 @@ require_once("conexionbd.php")
 							<li>Título:".$resultado['Titulo']."</li>
 							<li>Fecha:".$resultado['Fecha']."</li>
 							<li>País:".$pais['NomPais']."</li>
-					</ul></figure><br>";
+					</ul></figure>";
 				}
 				if($var == 0){
-					echo "<article class='mensajerror'><p>No hay resultados.</p></article>";
+					echo "No hay resultados.";
 				}
-				
+
 			?>
 		</main>
 		<?php

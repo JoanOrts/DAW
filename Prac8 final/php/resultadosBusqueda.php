@@ -15,7 +15,12 @@ require_once("conexionbd.php")
 			<h2>Resultados de la búsqueda</h2>
 			<?php
 				$var = 0;
-				$sentencia="select * from FOTOS f where f.Pais='".$_POST['pais']."'";
+				$sentencia="select * from FOTOS f";
+				if(isset($_POST["pais"])&&$_POST["pais"]!=""){
+					if($_POST['pais'] != 1){
+						$sentencia=$sentencia."where f.Pais='".$_POST['pais']."'";
+					}
+				}
 				if(isset($_POST["titulo"])&&$_POST["titulo"]!=""){
 					$sentencia=$sentencia." and f.Titulo LIKE '%".$_POST['titulo']."%'";
 				}
@@ -35,7 +40,7 @@ require_once("conexionbd.php")
 						}
 						$pais=$paises->fetch_assoc();
 					}
-					
+
 					echo "<figure class='fotografia'>";
 					if(isset($_SESSION["Estado"])&&$_SESSION["Estado"]=="Autenticado"){
 						echo "<a href='DetalleFoto.php?id='".$resultado['IdFoto']."'>";
@@ -54,7 +59,7 @@ require_once("conexionbd.php")
 				if($var == 0){
 					echo "No hay resultados.";
 				}
-				
+
 			?>
 		</main>
 		<?php
