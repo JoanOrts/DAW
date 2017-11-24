@@ -33,7 +33,7 @@ require_once("header.php");
 					</tr>
 					<tr>
 						<td><strong>Fecha de Nacimiento:</strong></td>
-						<td><?php echo $_POST["dia"];?>/<?php echo $_POST["mes"];?>/<?php echo $_POST["anyo"];?></td>
+						<td><?php echo $_POST["fecha"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Ciudad:</strong></td>

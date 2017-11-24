@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require_once("acceso.php");
 require_once("controlAcceso.php");
@@ -6,7 +6,7 @@ $title="Búsqueda. Pictures &amp; Images";
 require_once("head.php");
 require_once("header.php");
 require_once("conexionbd.php");
-?>	
+?>
 	<main>
 		<h2>Regístrate</h2>
 
@@ -18,8 +18,7 @@ require_once("conexionbd.php");
 			<label>Sexo:</label>
 			<label for="hombre">Hombre<input type="radio" name="sexo" id="hombre" value="Hombre"></label>
 		    <label for="mujer">Mujer<input type="radio" name="sexo" id="mujer" value="Mujer"></label><br><br>
-			<label>Fecha de nacimiento:</label>
-				<input type="number" name="dia" size="2" maxlength="2" placeholder="Dia"/>/<input type="number" name="mes" size="2" maxlength="2" placeholder="Mes"/>/<input type="number" name="anyo" size="4" maxlength="4" placeholder="Año"/><br><br>
+			<label for="fecha">Fecha de Nacimiento:</label> <input type="date" name="fecha" id="fecha"><br><br>
 			<label for="ciudad">Ciudad:</label><input type="text" id="ciudad" name="ciudad" placeholder="Ciudad"><br><br>
 			<?php
 				$sentencia="select * from PAISES";

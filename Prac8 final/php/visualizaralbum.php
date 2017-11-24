@@ -10,6 +10,16 @@ require_once("conexionbd.php");
 <main>
 
 <?php
+$sentcomprobar = "select max(IdAlbum) as Patata from ALBUMES";
+$numero = mysqli_query($mysqli, $sentcomprobar);
+if(!$numero || $mysqli->errno){
+	die("Error: No se pudo realizar la consulta".$mysqli->error);
+}
+$numeros=$numero->fetch_assoc();
+if($_GET['id']>$numeros['Patata']){
+	echo "<article class='mensajerror'><p>No existe.</p></article>";
+}
+else{
 $sentencia = "select * from ALBUMES a where IdAlbum=".$_GET['id'];
 $albumes = mysqli_query($mysqli, $sentencia);
 if(!$albumes || $mysqli->errno){
@@ -36,7 +46,7 @@ echo "<a href='DetalleFoto.php?id=".$fto['IdFoto']."'><img src='".$fto['Fichero'
 }
 echo "</section>";
 
-
+}
 
 ?>
 </main>
