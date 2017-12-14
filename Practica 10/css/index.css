@@ -1,0 +1,430 @@
+﻿html, body{
+	margin: 0px;
+	padding: 0px;
+	font-family:Verdana;
+	background-color:#D3D3D3;
+}
+
+main{
+	margin-bottom: 100px;
+}
+
+header{
+	color: white;
+	background-color: rgb(40,40,40);
+	width: 100%;
+	height: 120px;
+}
+
+header .cabeceraizquierda{
+	display: inline-block;
+	width: 33%;
+	top:0px;
+	margin-left: 10px;
+}
+
+header .cabeceraderecha{
+	position: absolute;
+
+	text-align: right;
+	vertical-align: top;
+	padding-top: 15px;
+	right: 0px;
+	top: 0px;
+}
+
+header .formularioacceso{
+	margin-right:  10px;
+}
+
+.formulariobusqueda label{
+	display: block;
+	float: left;
+	width: 150px;
+	padding-left: 10px;
+}
+
+.formularioregistro label {
+	display: block;
+	float: left;
+	width: 200px;
+	padding-left: 10px;
+}
+
+
+.botonsubmit{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+input[type=number]{
+	width: 55px;
+}
+
+.formulariobusqueda, .formularioregistro{
+	width: 650px;
+    margin: 0 auto;
+    border: 3px solid black;
+	border-radius: 25px;
+    margin-top: 2%;
+	padding: 10px;
+}
+
+.albumsolicitar{
+
+	width: 90%;
+    margin: 0 auto;
+    border: 3px solid black;
+	border-radius: 25px;
+	padding: 10px;
+}
+
+.albumsolicitar label {
+	display: block;
+	float: left;
+	width: 250px;
+	padding-left: 10px;
+}
+
+#usuario{
+	border-style:solid;
+	border-color:rgb(40,40,40);
+}
+
+#contraseña{
+	border-style:solid;
+	border-color:rgb(40,40,40);
+}
+
+#entrar{
+	font:Verdana, sanserifif;
+	background-color: white;
+	border-style: solid;
+	border-color:rgb(40,40,40);
+}
+
+.enlacescabecera{
+	display: inline-block;
+	margin-right: 10px;
+}
+
+.incorrecto{
+	position: absolute;
+    top: 65px;
+    color: orangered;
+    font-weight: bold;
+}
+
+
+a {
+	color: white;
+}
+
+footer{
+    position: fixed;
+	background-color: rgb(40,40,40);
+	bottom: 0px;
+	width: 100%;
+	color: white;
+}
+
+main a{
+	color:black;
+}
+
+.seccionfotos{
+	    width: 1272px;
+    margin: 0 auto;
+}
+
+.fotografia {
+	width: 420px;
+	margin: 0 auto;
+	border: 3px solid black;
+	border-radius: 25px;
+}
+
+.fotografia-aleatoria {
+	width: 820px;
+	margin: 0 auto;
+	border: 3px solid black;
+	border-radius: 25px;
+	text-align: center;
+}
+
+.fotografia-aleatoria h3{
+	margin: 0;
+	padding: 0;
+}
+
+.fotografia-aleatoria p{
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.avatarusuario{
+	text-align: center;
+}
+.albumdatos{
+	text-align: center;
+}
+
+.datosusuario{
+	width: 300px;
+	margin: 0 auto;
+	border: 3px solid black;
+	border-radius: 25px;
+	padding: 10px;
+	margin-top: 39px;
+}
+
+.confirmacion{
+	width: 500px;
+	margin: 0 auto;
+	border: 3px solid black;
+	border-radius: 25px;
+}
+
+img{
+	margin: 10px;
+}
+
+.tabla{
+	margin: 10px;
+}
+
+label[for="hombre"]{
+	width: 85px;
+}
+
+label[for="color"]{
+	width: 95px;
+}
+
+h2{
+    padding-top: 20px;
+    text-align: center;
+}
+
+table, th, td{
+	  padding-left: 10px;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin-left: 90px;
+    text-align: left;
+}
+
+p, h3{
+	padding-left: 90px;
+}
+
+input:focus{
+	outline: 2px solid black;
+}
+
+
+input:focus{
+	outline: 2px solid black;
+}
+
+input:hover{
+	outline: 2px solid black;
+}
+
+img:hover{
+	opacity: 0.5;
+	
+}
+
+.imghover{
+		display:block;
+	}
+
+input[type=submit] {
+    padding:5px 15px;
+    background:white;
+    border-color:black;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+	margin-right: 10px;
+
+}
+
+header input[type=submit]{
+	margin-right: 0px;
+}
+
+.botonet{
+	width: 100%;
+	    text-align: right;
+}
+
+.mensajerror{
+text-align: center;
+padding-left:0px;
+font-weight: bold;
+color: red;
+}
+.mensajerror p{
+text-align: center;
+padding-left:0px;
+font-weight: bold;
+}
+
+
+
+footer p{
+    padding-left: 0px;
+    text-align: center;
+}
+
+
+
+@media (max-width: 1271px) {
+  .seccionfotos{
+	    width: 846px;
+	}
+}
+
+@media (max-width: 845px) {
+  .seccionfotos{
+	    width: 400px;
+	}
+}
+
+@media (max-width: 750px) {
+
+	header{
+		height: 150px;
+	}
+
+	.cabeceraderecha{
+		width: 100%;
+	}
+
+	header .cabeceraderecha{
+	top: 15px;
+	padding-top: 0px;
+	}
+
+	.formularioregistro{
+		width: 500px;
+	}
+
+	.formularioregistro label{
+	width: 120px;
+
+	}
+
+	footer{
+		position: inherit;
+	}
+
+	.enlacescabecera {
+		display: block;
+		text-align: center;
+		margin: auto 0;
+		padding-top: 27px;
+	}
+	.incorrecto {
+		    position: absolute;
+    top: 78px;
+    color: orangered;
+    font-weight: bold;
+    right: 11px;
+	}
+}
+
+@media (max-width: 600px) {
+
+	.formularioregistro{
+		width: 350px;
+	}
+
+	.formulariobusqueda {
+    width: 350px;
+	}
+
+	.formulariobusqueda label{
+		width: 100px;
+	}
+
+	.formularioregistro label{
+		width: 100px;
+	}
+
+
+
+	header br{
+		display: none;
+	}
+
+	.seccionfotos img{
+		margin-left: 0px;
+	}
+
+	input[type="text"]{
+		width:20%;
+	}
+	input[type="password"]{
+		width:20%;
+	}
+
+	header .formularioacceso {
+		margin-right: 0px;
+		text-align: center;
+		margin-top: 0px;
+	}
+
+	header .cabeceraderecha{
+		top: 110px;
+	}
+
+	.enlacescabecera{
+		padding-top: 0px;
+	}
+	.incorrecto{
+		position: relative; 
+    
+    color: orangered;
+    font-weight: bold;
+    top: 0px;
+    display: block;
+    text-align: center;
+    margin: auto 0;
+	}
+
+	header .cabeceraizquierda{
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+	}
+
+	header {
+		height: 180px;
+	}
+}
+
+@media (max-width: 480px){
+
+	label{
+		width: 50px;
+	}
+
+	header {
+		height: 195px;
+	}
+
+	footer p{
+		margin-bottom: 0px;
+	}
+}
+
+@media (max-width: 443px){
+
+	header {
+		height: 225px;
+	}
+
+}
