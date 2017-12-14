@@ -16,7 +16,7 @@ if(isset($_POST)&&isset($_POST["nusuario"])&&$_POST["nusuario"]!=""){
 	$dateusuario=false;
 	if(preg_match($regularnombre, $_POST["nusuario"])){
 		$nombreusuario=true;
-		$sentenciainsercion="INSERT INTO usuarios (NomUsuario, Clave, Email, Sexo, FNacimiento, Ciudad, Pais, Foto, FRegistro) values ('".$_POST["nusuario"]."'";
+		$sentenciainsercion="INSERT INTO USUARIOS (NomUsuario, Clave, Email, Sexo, FNacimiento, Ciudad, Pais, Foto, FRegistro) values ('".$_POST["nusuario"]."'";
 	}
 	if(isset($_POST["ncontrasena"])&&isset($_POST["rcontrasena"])&&$_POST["ncontrasena"]!=""&&preg_match($regularpass, $_POST["ncontrasena"])&&strcmp($_POST["ncontrasena"],$_POST["rcontrasena"])==0){
 		$passusuario=true;
@@ -59,9 +59,29 @@ if(isset($_POST)&&isset($_POST["nusuario"])&&$_POST["nusuario"]!=""){
 	if($nombreusuario==true&&$passusuario==true&&$correousuario==true&&$sexousuario==true&&$dateusuario==true){
 		$resultado=mysqli_query($mysqli, $sentenciainsercion);
 	}
-	else if($nombreusuario==false||$passusuario==false||$correousuario==false||$sexousuario==false||$dateusuario==false){
-		header("location: registro.php");
+	else if($nombreusuario==false){
+		header("location: paginaRegistro.php?errornombre");
 	}
+	else if($passusuario==false){
+		header("location: paginaRegistro.php?errorpass");
+	
+	}
+	else if($correousuario==false){
+		header("location: paginaRegistro.php?erroremail");
+		
+	}
+	else if($sexousuario==false){
+		header("location: paginaRegistro.php?errorsexual");
+		
+	}
+	else if($dateusuario==false){
+		header("location: paginaRegistro.php?errordate");
+		
+	}
+}
+
+if(($_POST["nusuario"]==null)||($_POST["ncontrasena"]==null)||($_POST["emaili"]==null)||($_POST["sexo"]==null)||($_POST["fecha"]==null)){
+	header("location: paginaRegistro.php?errornombre");
 }
 ?>
 		<main>

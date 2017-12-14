@@ -24,21 +24,24 @@ require_once("conexionbd.php");
 
 	}
 
-	$sentencia = "select ALBUMES.* from ALBUMES, USUARIOS where ALBUMES.Usuario = USUARIOS.IdUsuario and USUARIOS.NomUsuario='".$el_usuario."';";
+	$sentencia = "select ALBUMES.* from ALBUMES, USUARIOS where ALBUMES.Usuario = USUARIOS.IdUsuario and USUARIOS.NomUsuario='".$el_usuario."'order by Fecha;";
 	$query = mysqli_query($mysqli, $sentencia);
-	$albumes = array(); // create a variable to hold the information
+	$albumes = array(); 
 	while (($row = mysqli_fetch_array($query, MYSQLI_ASSOC))){
-  		$albumes[] = $row; // add the row in to the results (data) array
+  		$albumes[] = $row; 
 	}
 
 	if(!$albumes || $mysqli->errno){
-		die("Error: No se pudo realizar la consulta".$mysqli->error);
+		die("<article class='mensajerror'><p>No tienes albumes.</p></article>".$mysqli->error);
 	}
 
+	if(count($albumes)==0){
+		echo "<article class='mensajerror'><p>No tienes albumes.</p></article>";
+	}	
 
 	for ($i = 0; $i < count($albumes); $i++) {
 		$id=$albumes[$i]['IdAlbum'];
-		$sentfoto = "select * from FOTOS f where Album='".$id."';";
+		$sentfoto = "select * from FOTOS f where Album='".$id."' order by Fecha;";
 		$fotos = mysqli_query($mysqli, $sentfoto);
 		if(!$fotos || $mysqli->errno){
 			die("Error: No se pudo realizar la consulta".$mysqli->error);

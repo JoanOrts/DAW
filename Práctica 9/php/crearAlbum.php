@@ -9,8 +9,8 @@ require_once("conexionbd.php");
 <main>
     <h2>Formulario creación album</h2>
 		<p>Introduce los siguientes datos:</p>
-		<form class="formulariobusqueda" method="post">
-			<label for="titulo">Título:</label> <input type="text" name="nusuario" id="nusuario" placeholder="Título del album"><br>
+		<form class="formulariobusqueda" method="POST" action="confirmarCrearAlbum.php">
+			<label for="titulo">Título:</label> <input type="text" name="titulo" id="titulo" placeholder="Título del album" required><br>
 			<label for="descripcion">Descripción:</label><textarea name="descripcion" id="descripcion" maxlength="4000" rows="4" cols="50" placeholder="Introduzca una descripción del album"></textarea><br>
 			<label for="fecha">Fecha:</label> <input type="date" name="fecha" id="fecha"><br>
 			<?php
@@ -27,7 +27,7 @@ require_once("conexionbd.php");
 				}
 				echo "</select><br>";
 			?>
-			<div class="botonet"><input type="submit" value="Completar registro"></div>
+			<div class="botonet"><input type="submit" value="Crear album"></div>
 		</form>
 
 </main>

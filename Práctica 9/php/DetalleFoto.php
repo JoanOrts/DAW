@@ -8,8 +8,8 @@ require_once("conexionbd.php");
 ?>
 		<main>
 			<h2>Detalles de la foto</h2>
-
-
+			
+			
 
 
 	<?php
@@ -38,21 +38,20 @@ require_once("conexionbd.php");
 				if(!$usuarios || $mysqli->errno){
 					die("<article class='mensajerror'><p>Error: No se pudo realizar la consulta</p></article>".$mysqli->error);
 				}
-				$usuario = $usuarios->fetch_assoc();
+				$usuario = $usuarios->fetch_assoc();	
 				$sentalbum = "select * from ALBUMES where ALBUMES.IdAlbum = ".$foto['Album'];
 				$albumes = mysqli_query($mysqli, $sentalbum);
 				if(!$albumes || $mysqli->errno){
 					die("<article class='mensajerror'><p>Error: No se pudo realizar la consulta</p></article>".$mysqli->error);
 				}
 				$album = $albumes->fetch_assoc();
-				$date=new DateTime($foto['Fecha']);
-				$fecha = $date->format('d-m-Y');
+					
 				echo "<figure class='fotografia'><img src='".$foto['Fichero']."' alt='".$foto['Titulo']."'width=400>
 					<ul>
 					    <li>Título: ".$foto['Titulo']."</li>
-					    <li>Fecha: ".$fecha."</li>
+					    <li>Fecha: ".$foto['Fecha']."</li>
 					    <li>País: ".$pais['NomPais']."</li>
-					    <li>Álbum: <a href='visualizaralbum.php?id=".$album['IdAlbum']."'>".$album['Titulo']."</a></li>
+					    <li>Álbum: <a href='album.php?id=".$album['IdAlbum']."'>".$album['Titulo']."</a></li>
 					    <li>Usuario: <a href='otroUsuario.php?user=".$usuario['NomUsuario']."'>".$usuario['NomUsuario']."</a></li>
 					</ul>
 					</figure>";

@@ -4,6 +4,7 @@ require_once("comprobarSesion.php");
 $title="Confirmación álbum. Pictures &amp; Images";
 require_once("head.php");
 require_once("headerRegistrado.php");
+require_once("conexionbd.php");
 ?>
 		<main>
 			<h2>Confirmación álbum</h2>
@@ -51,11 +52,11 @@ require_once("headerRegistrado.php");
 					</tr>
 					<tr>
 						<td><strong>Álbum de PI:</strong></td>
-						<td>Álbum 1</td>
+						<td><?php echo $_POST["album"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Fecha de recepción:</strong></td>
-						<td><?php echo $_POST["dia"];?>/<?php echo $_POST["mes"];?>/<?php echo $_POST["anyo"];?></td>
+						<td><?php echo $_POST["fecha"];?></td>
 					</tr>
 					<tr>
 						<td><strong>Impresión:</strong></td>
@@ -79,7 +80,7 @@ require_once("headerRegistrado.php");
 				else{
 					$preciopag = 0.07;
 				}
-				if($resolucion > 300){
+				if($resolucion >= 150){
 					$precioresolucion = 0.02;
 				}
 				if($color == "Color"){
@@ -90,11 +91,118 @@ require_once("headerRegistrado.php");
 				}
 				$preciototal = $numeropag * $preciopag + $numerofotos * $preciocolor + $numerofotos * $precioresolucion;
 				return $preciototal;
-			}?>
+			}
+
+		if(isset($_POST)){
+			$sentencia="INSERT INTO SOLICITUDES (Album, Nombre, Titulo, Descripcion, Email, Calle, Numero, CP, Localidad, Provincia, Color, Copias, Resolucion, Fecha, IColor, FRegistro, Coste) values (";
+			if(isset($_POST["album"])){
+				$sentencia=$sentencia.$_POST["album"];
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["nombrecompleto"])){
+				$sentencia=$sentencia.", '".$_POST["nombrecompleto"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["tituloalbum"])){
+				$sentencia=$sentencia.", '".$_POST["tituloalbum"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["textoadicional"])){
+				$sentencia=$sentencia.", '".$_POST["textoadicional"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["correoelectronico"])){
+				$sentencia=$sentencia.", '".$_POST["correoelectronico"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["calle"])){
+				$sentencia=$sentencia.", '".$_POST["calle"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["numero"])){
+				$sentencia=$sentencia.", '".$_POST["numero"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["cp"])){
+				$sentencia=$sentencia.", '".$_POST["cp"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["localidad"])){
+				$sentencia=$sentencia.", '".$_POST["localidad"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["provincia"])){
+				$sentencia=$sentencia.", '".$_POST["provincia"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["colorportada"])){
+				$sentencia=$sentencia.", '".$_POST["colorportada"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["numerocopias"])){
+				$sentencia=$sentencia.", '".$_POST["numerocopias"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["resolucionfotos"])){
+				$sentencia=$sentencia.", '".$_POST["resolucionfotos"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["fecha"])){
+				$sentencia=$sentencia.", '".$_POST["fecha"]."'";
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			if(isset($_POST["color"])){
+				$color=1;
+				$bn = 0;
+				if($_POST["color"]=="Blanco y negro"){
+					$sentencia=$sentencia.", '".$bn."'";
+				}
+				else{
+					$sentencia=$sentencia.", '".$color."'";
+				}			
+			}
+			else{
+				$sentencia=$sentencia.", ";
+			}
+			$precio = calcular_precio();
+			$sentencia=$sentencia.", UTC_TIMESTAMP, ".$precio.");";
+			mysqli_query($mysqli, $sentencia);
+		}
+
+			?>
 			<p>El coste total del álbum es de <strong><?php echo calcular_precio();?></strong></p>
 
 			<p>Gracias por confiar en el servicio de impreso de álbumes de <strong>Pictures &amp; Images</strong>, el álbum lo recibirá la fecha que ha especificado.</p>
 		</main>
 <?php
+mysqli_close($mysqli);
 require_once("footer.php");
 ?>

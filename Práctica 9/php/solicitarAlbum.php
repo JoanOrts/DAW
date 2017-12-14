@@ -77,7 +77,7 @@ require_once("conexionbd.php")
 						mysqli_free_result($album);
 					?><br>
 					<label>Fecha de recepción:</label>
-						<input type="text" name="dia" size="2" maxlength="2" />/<input type="text" name="mes" size="2" maxlength="2" />/<input type="text" name="anyo" size="4" maxlength="4" /><br>
+						<input type="date" name="fecha" id="fecha"><br>
 					<label>Impresión:</label>
 					<label for="color">Color<input type="radio" name="color" id="color" value="Color"></label>
 					<label for="blancoynegro">Blanco y negro<input type="radio" name="color" id="blancoynegro" value="Blanco y negro"></label><br>

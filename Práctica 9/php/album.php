@@ -32,37 +32,23 @@ else{
 	}
 	$usuario=$usuarios->fetch_assoc();
 
-	$online;
-	if(isset($_COOKIE['usuario'])&&isset($_COOKIE['date'])){
-		$usuarios = explode(":",$_COOKIE['usuario']);
-		$online = $usuarios[0];
-	}
-	else{
-
-		$online= $_SESSION["user"];
-
+	
+	$sentfoto = "select * from FOTOS f where Album=".$_GET['id'];
+	$fotos = mysqli_query($mysqli, $sentfoto);
+	if(!$fotos || $mysqli->errno){
+		die("Error: No se pudo realizar la consulta".$mysqli->error);
 	}
 
-	if($usuario['NomUsuario'] == $online){ 
-		$sentfoto = "select * from FOTOS f where Album=".$_GET['id']." order by Fecha";
-		$fotos = mysqli_query($mysqli, $sentfoto);
-		if(!$fotos || $mysqli->errno){
-			die("Error: No se pudo realizar la consulta".$mysqli->error);
-		}
-
-		$albumes=$albumes->fetch_assoc();
-		echo "<h2>Mi album ".$albumes['Titulo']."</h2><br>";
-		echo "<p class='albumdatos'><strong>Subidor por: </strong>".$usuario['NomUsuario']."  |    <strong>Fecha: </strong>".$albumes['Fecha']."   |   <strong>Descripción: </strong>".$albumes['Descripcion']."</p><br>";
-		echo "<section class='seccionfotos'>";
-		while($fto = mysqli_fetch_array($fotos)){   
-			echo "<a href='DetalleFoto.php?id=".$fto['IdFoto']."'><img src='".$fto['Fichero']."' alt='".$fto['Titulo']."' width=400></a>";  
-		}
-		echo "</section>";
-
+	$albumes=$albumes->fetch_assoc();
+	echo "<h2>Visualizando album ".$albumes['Titulo']."</h2><br>";
+	echo "<p class='albumdatos'><strong>Subidor por: </strong>".$usuario['NomUsuario']."  |    <strong>Fecha: </strong>".$albumes['Fecha']."   |   <strong>Descripción: </strong>".$albumes['Descripcion']."</p><br>";
+	echo "<section class='seccionfotos'>";
+	while($fto = mysqli_fetch_array($fotos)){   
+		echo "<a href='DetalleFoto.php?id=".$fto['IdFoto']."'><img src='".$fto['Fichero']."' alt='".$fto['Titulo']."' width=400></a>";  
 	}
-	else{
-		echo "<article class='mensajerror'><p>Esta página no existe.</p></article>";
-	}
+	echo "</section>";
+
+	
 }
 
 ?>

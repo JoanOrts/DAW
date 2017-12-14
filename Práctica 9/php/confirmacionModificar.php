@@ -4,7 +4,7 @@ require_once("acceso.php");
 require_once("controlAcceso.php");
 $title="Confirmar registro. Pictures &amp; Images";
 require_once("head.php");
-require_once("header.php");
+require_once("headerRegistrado.php");
 require_once("conexionbd.php");
 if(isset($_POST)&&isset($_POST["nusuario"])&&$_POST["nusuario"]!=""){
 	$regularnombre="/^([0-9]|[a-z]|[A-Z]){3,15}$/";
@@ -54,7 +54,7 @@ if(isset($_POST)&&isset($_POST["nusuario"])&&$_POST["nusuario"]!=""){
 		$resultado=mysqli_query($mysqli, $sentenciainsercion);
 	}
 	else if($nombreusuario==false||$passusuario==false||$correousuario==false||$sexousuario==false||$dateusuario==false){
-		header("location: registro.php");
+		header("location: misDatos.php");
 	}
 }
 ?>
