@@ -1,5 +1,5 @@
 <?php 
-	$mysqli = new mysqli("localhost", "pibd", "pibdpassword", "pibd");
+	$mysqli = new mysqli("localhost", "root", "", "pibd");
 	if(!mysqli_ping($mysqli)){
 		die("Error: No se ha podido conectar con la base de datos");
 	}

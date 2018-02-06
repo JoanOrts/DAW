@@ -29,6 +29,43 @@ if(isset($_GET["borrar"])){
 	mysqli_query($mysqli, $sentfoto);
 	$sentalbum="DELETE FROM ALBUMES WHERE Usuario ='".$idusuario."';";
 	mysqli_query($mysqli, $sentalbum);*/
+	
+	$sentusuario = "select USUARIOS.* from USUARIOS where USUARIOS.NomUsuario='".$_SESSION["user"]."';";
+	$usuarios = mysqli_query($mysqli, $sentusuario);
+	if(!$usuarios || $mysqli->errno){
+		die("<article class='mensajerror'><p>Error: No se pudo realizar la consulta</p></article>");
+	}
+	$usuario = $usuarios->fetch_assoc();	
+	
+	$sentalbum = "select ALBUMES.* from ALBUMES where ALBUMES.Usuario='".$usuario['IdUsuario']."';";
+	$albums = mysqli_query($mysqli, $sentalbum);
+	if(!$albums || $mysqli->errno){
+		die("<article class='mensajerror'><p>Error: No se pudo realizar la consulta</p></article>");
+	}
+	while($album = mysqli_fetch_array($albums)){   
+		$sentfoto = "select * from FOTOS where FOTOS.Album='".$album['IdAlbum']."';";
+		$fotos = mysqli_query($mysqli, $sentfoto);
+		if(!$fotos || $mysqli->errno){
+			die("Error: No se pudo realizar la consulta".$mysqli->error);
+		}
+
+		while($fto = mysqli_fetch_array($fotos)){   
+			unlink("../images/".$fto['Fichero']);
+		}
+	}
+
+	
+
+	$sentfoto = "select * from USUARIOS where USUARIOS.NomUsuario='".$_SESSION["user"]."';";
+	$fotos = mysqli_query($mysqli, $sentfoto);
+	if(!$fotos || $mysqli->errno){
+		die("Error: No se pudo realizar la consulta".$mysqli->error);
+	}
+
+	while($fto = mysqli_fetch_array($fotos)){   
+		unlink("../images/".$fto['Foto']);
+	}
+	
 	$sentencia="DELETE FROM USUARIOS WHERE USUARIOS.NomUsuario='".$_SESSION["user"]."';";
 	mysqli_query($mysqli, $sentencia);
   	session_destroy();

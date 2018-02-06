@@ -9,7 +9,7 @@ require_once("conexionbd.php");
 <main>
     <h2>Formulario creación album</h2>
 		<p>Introduce los siguientes datos. Los campos con (*) son obligatorios:</p>
-		<form class="formulariobusqueda" method="POST" action="confirmarAnyadirFoto.php">
+		<form class="formulariobusqueda" method="POST" action="confirmarAnyadirFoto.php" enctype="multipart/form-data">
 			<label for="titulo">Título:</label> <input type="text" name="titulo" id="titulo" placeholder="Título de la foto" required>(*)<br>
 			<label for="descripcion">Descripción:</label><textarea name="descripcion" id="descripcion" maxlength="4000" rows="4" cols="50" placeholder="Introduzca una descripción del album"></textarea><br>
 			<label for="fecha">Fecha:</label> <input type="date" name="fecha" id="fecha"><br>

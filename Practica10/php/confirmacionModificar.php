@@ -46,9 +46,28 @@ if(isset($_POST)&&isset($_POST["nusuario"])&&$_POST["nusuario"]!=""){
 	if(isset($_POST["pais"])){
 		$sentenciainsercion=$sentenciainsercion.", Pais=".$_POST["pais"];
 	}
-	/*if(isset($_POST["foto"])){
-		$sentenciainsercion=$sentenciainsercion.","; //No almacenamos la foto de momento
-	}*/
+	if(isset($_FILES["foto"])){
+
+		$sentfoto = "select * from USUARIOS where USUARIOS.NomUsuario='".$_POST["nusuario"]."';";
+		$fotos = mysqli_query($mysqli, $sentfoto);
+		if(!$fotos || $mysqli->errno){
+			die("Error: No se pudo realizar la consulta".$mysqli->error);
+		}
+
+		while($fto = mysqli_fetch_array($fotos)){   
+			unlink("../images/".$fto['Foto']);
+		}		
+				
+		$nowtime = time();
+		$nombre_foto = basename($_FILES["foto"]["name"]);
+		$ruta ="../images/".$_POST["nusuario"]."_".$nowtime."_".$nombre_foto;
+		if(move_uploaded_file($_FILES["foto"]["tmp_name"],$ruta)){
+			$sentenciainsercion=$sentenciainsercion.", Foto='".$ruta."'"; 
+		}
+	}
+	else{
+		$sentenciainsercion=$sentenciainsercion.", ''";
+	}
 	$sentenciainsercion=$sentenciainsercion." WHERE USUARIOS.NomUsuario='".$_SESSION["user"]."';";
 	if($nombreusuario==true&&$passusuario==true&&$correousuario==true&&$sexousuario==true&&$dateusuario==true){
 		$resultado=mysqli_query($mysqli, $sentenciainsercion);
@@ -100,7 +119,11 @@ if(isset($_POST)&&isset($_POST["nusuario"])&&$_POST["nusuario"]!=""){
 					</tr>
 					<tr>
 						<td><strong>Foto de Perfil:</strong></td>
-						<td><?php echo $_POST["foto"];?></td>
+						<td><?php 
+						$sentencia = "select * from USUARIOS where NomUsuario like '".$_POST["nusuario"]."'";
+						$usuarios = mysqli_query($mysqli, $sentencia);
+						$user = $usuarios->fetch_assoc();
+						echo'<img src="'.$user["Foto"].'" alt="icono usuario" width=300>'; ?></td>
 					</tr>
 				</tbody>
 			</table>

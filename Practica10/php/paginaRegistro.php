@@ -10,7 +10,7 @@ require_once("conexionbd.php");
 	<main>
 		<h2>Regístrate</h2>
 
-		<form action="confirmacionRegistro.php" class="formularioregistro" method="post">
+		<form action="confirmacionRegistro.php" class="formularioregistro" method="post" enctype="multipart/form-data">
 			<label for="rusuario">Nombre de usuario:</label><input type="text" id="rusuario" name="nusuario" placeholder="Nombre de Usuario"><br><br>
 			<label for="rcontraseña">Contraseña:</label><input type="password" id="rcontraseña" name="ncontrasena" placeholder="Contraseña"><br><br>
 			<label for="repetircontraseña">Repetir contraseña:</label><input type="password" id="repetircontraseña" name="rcontrasena" placeholder="Contraseña"><br><br>

@@ -68,9 +68,18 @@ if(!$fotos || $mysqli->errno){
 					if($aleatorio){
 						if($aleatorio->num_rows >0){
 							$res_aleatorio=$aleatorio->fetch_assoc();
-							echo "<figure class='fotografia-aleatoria'><a href='DetalleFoto.php?id=".$res_aleatorio['IdFoto']."'><img src='".$res_aleatorio['Fichero']."' alt='".$res_aleatorio['Titulo']."' title='".$res_aleatorio['Titulo']." '></a>";
+							$date=new DateTime($res_aleatorio['Fecha']);
+							$fecha = $date->format('d-m-Y');
+						
+							$sentpais= "select * from PAISES p where IdPais=".$res_aleatorio['Pais'];
+							$paises=mysqli_query($mysqli, $sentpais);
+							if(!$paises || $mysqli->errno){
+								die("Error: No se pudo realizar la consulta".$mysqli->error);
+							}
+							$pais=$paises->fetch_assoc();
+							echo "<figure class='fotografia-aleatoria'><a href='DetalleFoto.php?id=".$res_aleatorio['IdFoto']."'><img src='".$res_aleatorio['Fichero']."' alt='".$res_aleatorio['Titulo']."' title='".$res_aleatorio['Titulo']." | ".$fecha. " | ".$pais['NomPais']."' title='".$res_aleatorio['Titulo']." '></a>";
 							echo "<h3><p>$critico</p></h3><p>$motivo</p>
-								<p><img src='../images/".$estrellas.".png' alt='".$estrellas." estrellas' width=200></p></figure>";
+								<p><img src='../images/".$estrellas.".png' alt='".$estrellas." estrellas' title='".$estrellas." estrellas' width=200></p></figure>";
 						}
 						else{echo"no se ha encontrado foto";}
 					}
