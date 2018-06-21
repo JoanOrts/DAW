@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="LibrerateGenNHibernate"
+		                   namespace="LibrerateGenNHibernate.EN.Librerate">
+		    
+		    
+			
+				<class name="AlbumEN" table="Album"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Titulo" type="string"> 
+						<column name="titulo"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="Cantidad" type="integer"> 
+						<column name="cantidad"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+						<many-to-one name="Usuario" class="LibrerateGenNHibernate.EN.Librerate.UsuarioEN" >	
+								<column name="FK_id_idUsuario"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<bag name="Libro" table="[album_libro]"  >
+							<key>
+								
+									<column name="FK_id_idAlbum"/> 
+							</key>
+      						<many-to-many class="LibrerateGenNHibernate.EN.Librerate.LibroEN">
+									<column name="FK_attribute_idLibro"/> 
+      						</many-to-many>
+    					</bag>
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="AlbumENReadAllHQL">from AlbumEN</query>
+		  <query name="AlbumENleerNombreHQL"><![CDATA[ from AlbumEN as a where a.Titulo= :titulo]]></query>
+		</hibernate-mapping>
+	

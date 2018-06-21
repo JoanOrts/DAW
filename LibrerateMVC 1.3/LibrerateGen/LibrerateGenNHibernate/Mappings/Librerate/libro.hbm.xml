@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="LibrerateGenNHibernate"
+		                   namespace="LibrerateGenNHibernate.EN.Librerate">
+		    
+		    
+			
+				<class name="LibroEN" table="Libro"> 
+				  	
+						<id name="Id" column="attribute" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Precio" type="float"> 
+						<column name="precio"  not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Descripcion" type="string"> 
+						<column name="descripcion"  not-null="true"/>
+					</property>
+					<property name="Portada" type="string"> 
+						<column name="portada"  not-null="true"/>
+					</property>
+					<property name="Genero" > 
+						<column name="genero"  not-null="true"/>
+					</property>
+					<property name="Numpag" type="integer"> 
+						<column name="numpag"  not-null="true"/>
+					</property>
+					<property name="Idioma" type="string"> 
+						<column name="idioma"  not-null="true"/>
+					</property>
+					<property name="Media" type="integer"> 
+						<column name="media"  not-null="true"/>
+					</property>
+					<property name="Cantidadvendida" type="integer"> 
+						<column name="cantidadvendida"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="LineaPedido" >
+							<key>
+							
+								
+								<column name="FK_attribute_idLibro"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.LineaPedidoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Critica" >
+							<key>
+							
+								
+								<column name="FK_attribute_idLibro"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.CriticaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Puntuacion" >
+							<key>
+							
+								
+								<column name="FK_attribute_idLibro"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.PuntuacionEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Album" table="[album_libro]" inverse="true" >
+							<key>
+								
+									<column name="FK_attribute_idLibro"/> 
+							</key>
+      						<many-to-many class="LibrerateGenNHibernate.EN.Librerate.AlbumEN">
+									<column name="FK_id_idAlbum"/> 
+      						</many-to-many>
+    					</bag>
+			
+		  			
+						<bag name="Publicacion" >
+							<key>
+							
+								
+								<column name="FK_attribute_idLibro"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.PublicacionEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Usuario" table="[usuario_libro]" inverse="true" >
+							<key>
+								
+									<column name="FK_attribute_idLibro"/> 
+							</key>
+      						<many-to-many class="LibrerateGenNHibernate.EN.Librerate.UsuarioEN">
+									<column name="FK_id_idUsuario"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+		  			
+						<many-to-one name="Usuario_0" class="LibrerateGenNHibernate.EN.Librerate.UsuarioEN" >	
+								<column name="FK_id_idUsuario_0"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="LibroENReadAllHQL">from LibroEN</query>
+		  <query name="LibroENleerGeneroHQL"><![CDATA[from LibroEN as l where l.Genero= :genero]]></query>
+		  <query name="LibroENleerUsuarioHQL"><![CDATA[from LibroEN as l inner join l.Usuario as u where u.Nombre = :usuario]]></query>
+		  <query name="LibroENleerPrecioHQL"><![CDATA[from LibroEN as l where l.Precio= :precio]]></query>
+		  <query name="LibroENleerNombreHQL"><![CDATA[from LibroEN as l where l.Nombre= :nombre]]></query>
+		</hibernate-mapping>
+	

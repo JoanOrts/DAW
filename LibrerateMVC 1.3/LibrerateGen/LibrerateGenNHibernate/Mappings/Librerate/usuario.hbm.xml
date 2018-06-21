@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="LibrerateGenNHibernate"
+		                   namespace="LibrerateGenNHibernate.EN.Librerate">
+		    
+		    
+			
+				<class name="UsuarioEN" table="Usuario"> 
+				  	
+						<id name="Id" column="id" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Nombre" type="string"> 
+						<column name="nombre"  not-null="true"/>
+					</property>
+					<property name="Email" type="string"> 
+						<column name="email"  unique="true" not-null="true"/>
+					</property>
+					<property name="Fecha" type="date"> 
+						<column name="fecha"  not-null="true"/>
+					</property>
+					<property name="Contrasena" type="string"> 
+						<column name="contrasena"  not-null="true"/>
+					</property>
+					<property name="Baneado" type="boolean"> 
+						<column name="baneado"  not-null="true"/>
+					</property>
+					<property name="Imagen" type="string"> 
+						<column name="imagen"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+			
+			
+		  			
+						<bag name="Album" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.AlbumEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="LineaPedido" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.LineaPedidoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Puntuacion" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.PuntuacionEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Donacion" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.DonacionEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Publicacion" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.PublicacionEN"/>
+					    </bag>
+					
+			
+		  			
+					
+							<many-to-one name="Administrador" class="LibrerateGenNHibernate.EN.Librerate.AdministradorEN" >
+								<column name="FK_idAdministrador_idAdministrador"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+					
+							<many-to-one name="Autor" class="LibrerateGenNHibernate.EN.Librerate.AutorEN" >
+								<column name="FK_id_idAutor"/> 
+        					</many-to-one>
+					 
+						
+			
+		  			
+						<bag name="Carrito" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.CarritoEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Critica" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.CriticaEN"/>
+					    </bag>
+					
+			
+		  			
+						<bag name="Libro" table="[usuario_libro]"  >
+							<key>
+								
+									<column name="FK_id_idUsuario"/> 
+							</key>
+      						<many-to-many class="LibrerateGenNHibernate.EN.Librerate.LibroEN">
+									<column name="FK_attribute_idLibro"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+		  			
+						<bag name="Autor_0" table="[autor_0_usuario_0]" inverse="true" >
+							<key>
+								
+									<column name="FK_id_idUsuario_0"/> 
+							</key>
+      						<many-to-many class="LibrerateGenNHibernate.EN.Librerate.AutorEN">
+									<column name="FK_id_idAutor_0"/> 
+      						</many-to-many>
+    					</bag>
+			
+			
+		  			
+						<bag name="Libro_0" >
+							<key>
+							
+								
+								<column name="FK_id_idUsuario_0"/>
+					      	</key>
+							<one-to-many class="LibrerateGenNHibernate.EN.Librerate.LibroEN"/>
+					    </bag>
+					
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="UsuarioENReadAllHQL">from UsuarioEN</query>
+		  <query name="UsuarioENleerNombreHQL"><![CDATA[from UsuarioEN as u where u.Nombre = :nombre]]></query>
+		  <query name="UsuarioENleerEmailHQL"><![CDATA[from UsuarioEN as u where u.Email = :email]]></query>
+		</hibernate-mapping>
+	

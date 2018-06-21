@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+		<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+		                   assembly="LibrerateGenNHibernate"
+		                   namespace="LibrerateGenNHibernate.EN.Librerate">
+		    
+		    
+			
+				<class name="DonacionEN" table="Donacion"> 
+				  	
+						<id name="Id" column="idDonacion" type="integer"> 
+							<generator class="hilo"/>
+						</id>
+			
+					
+					<property name="Cantidad" type="float"> 
+						<column name="cantidad"  not-null="true"/>
+					</property>
+			
+			
+			
+			
+		  			
+						<many-to-one name="Autor" class="LibrerateGenNHibernate.EN.Librerate.AutorEN" >	
+								<column name="FK_id_idAutor"/> 
+						</many-to-one>
+											 					
+			
+		  			
+						<many-to-one name="Usuario" class="LibrerateGenNHibernate.EN.Librerate.UsuarioEN" >	
+								<column name="FK_id_idUsuario"/> 
+						</many-to-one>
+											 					
+					
+					
+					
+					
+		
+		 </class>	
+		  
+		  <query name="DonacionENReadAllHQL">from DonacionEN</query>
+		</hibernate-mapping>
+	
